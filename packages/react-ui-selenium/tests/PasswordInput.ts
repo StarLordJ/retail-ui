@@ -1,35 +1,38 @@
-describe("PasswordInput", function() {
-  describe("Plain", function() {
-    it("Plain", async function() {
-      const element = await this.browser.findElement(By.css("#test-element"));
-      await expect(await element.takeScreenshot()).to.matchImage("Plain");
+import { expect } from 'chai';
+import { By, Key } from 'selenium-webdriver';
+
+describe('PasswordInput', function() {
+  describe('Plain', function() {
+    it('Plain', async function() {
+      const element = await this.browser.findElement(By.css('#test-element'));
+      await expect(await element.takeScreenshot()).to.matchImage('Plain');
     });
-    it("With typed password", async function() {
-      const element = await this.browser.findElement(By.css("#test-element"));
+    it('With typed password', async function() {
+      const element = await this.browser.findElement(By.css('#test-element'));
       await this.browser
         .actions({
-          bridge: true
+          bridge: true,
         })
-        .sendKeys(selector("input"), Key["Test..."])
+        .sendKeys(selector('input'), Key['Test...'])
         .perform();
-      await expect(await element.takeScreenshot()).to.matchImage("With typed password");
+      await expect(await element.takeScreenshot()).to.matchImage('With typed password');
     });
-    it("With visible password", async function() {
-      const element = await this.browser.findElement(By.css("#test-element"));
+    it('With visible password', async function() {
+      const element = await this.browser.findElement(By.css('#test-element'));
       await this.browser
         .actions({
-          bridge: true
+          bridge: true,
         })
-        .sendKeys(selector("input"), Key["Test..."])
+        .sendKeys(selector('input'), Key['Test...'])
         .click(this.browser.findElement(By.css('[data-tid="PasswordInputEyeIcon"]')))
         .perform();
-      await expect(await element.takeScreenshot()).to.matchImage("With visible password");
+      await expect(await element.takeScreenshot()).to.matchImage('With visible password');
     });
   });
-  describe("CapsLock label", function() {
-    it("Plain", async function() {
-      const element = await this.browser.findElement(By.css("#test-element"));
-      await expect(await element.takeScreenshot()).to.matchImage("Plain");
+  describe('CapsLock label', function() {
+    it('Plain', async function() {
+      const element = await this.browser.findElement(By.css('#test-element'));
+      await expect(await element.takeScreenshot()).to.matchImage('Plain');
     });
   });
 });

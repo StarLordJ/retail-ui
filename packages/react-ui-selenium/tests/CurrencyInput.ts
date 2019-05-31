@@ -1,87 +1,90 @@
-describe("CurrencyInput", function() {
-  describe("Sample", function() {
-    it("Plain", async function() {
+import { expect } from 'chai';
+import { By, Key } from 'selenium-webdriver';
+
+describe('CurrencyInput', function() {
+  describe('Sample', function() {
+    it('Plain', async function() {
       [
         {
-          type: "ignoreElements",
-          args: ["button"]
-        }
+          type: 'ignoreElements',
+          args: ['button'],
+        },
       ];
-      const element = await this.browser.findElement(By.css("#test-element"));
-      await expect(await element.takeScreenshot()).to.matchImage("Plain");
+      const element = await this.browser.findElement(By.css('#test-element'));
+      await expect(await element.takeScreenshot()).to.matchImage('Plain');
     });
-    it("Focus", async function() {
+    it('Focus', async function() {
       [
         {
-          type: "ignoreElements",
-          args: ["button"]
-        }
+          type: 'ignoreElements',
+          args: ['button'],
+        },
       ];
-      const element = await this.browser.findElement(By.css("#test-element"));
+      const element = await this.browser.findElement(By.css('#test-element'));
       await this.browser
         .actions({
-          bridge: true
+          bridge: true,
         })
         .click(this.browser.findElement(By.css('[data-comp-name*="CurrencyInput"] input')))
         .perform();
-      await expect(await element.takeScreenshot()).to.matchImage("Focus");
+      await expect(await element.takeScreenshot()).to.matchImage('Focus');
     });
-    it("Input value", async function() {
+    it('Input value', async function() {
       [
         {
-          type: "ignoreElements",
-          args: ["button"]
-        }
+          type: 'ignoreElements',
+          args: ['button'],
+        },
       ];
-      const element = await this.browser.findElement(By.css("#test-element"));
+      const element = await this.browser.findElement(By.css('#test-element'));
       await this.browser
         .actions({
-          bridge: true
+          bridge: true,
         })
         .click(this.browser.findElement(By.css('[data-comp-name*="CurrencyInput"] input')))
         .pause(500)
-        .sendKeys(selector('[data-comp-name*="CurrencyInput"] input'), Key["1"])
+        .sendKeys(selector('[data-comp-name*="CurrencyInput"] input'), Key['1'])
         .pause(500)
-        .sendKeys(selector('[data-comp-name*="CurrencyInput"] input'), Key["2"])
+        .sendKeys(selector('[data-comp-name*="CurrencyInput"] input'), Key['2'])
         .pause(500)
-        .sendKeys(selector('[data-comp-name*="CurrencyInput"] input'), Key["3"])
+        .sendKeys(selector('[data-comp-name*="CurrencyInput"] input'), Key['3'])
         .pause(500)
-        .sendKeys(selector('[data-comp-name*="CurrencyInput"] input'), Key["4"])
+        .sendKeys(selector('[data-comp-name*="CurrencyInput"] input'), Key['4'])
         .perform();
-      await expect(await element.takeScreenshot()).to.matchImage("Input value");
+      await expect(await element.takeScreenshot()).to.matchImage('Input value');
     });
-    it("External focus and input", async function() {
+    it('External focus and input', async function() {
       [
         {
-          type: "ignoreElements",
-          args: ["button"]
-        }
+          type: 'ignoreElements',
+          args: ['button'],
+        },
       ];
-      const element = await this.browser.findElement(By.css("#test-element"));
+      const element = await this.browser.findElement(By.css('#test-element'));
       await this.browser
         .actions({
-          bridge: true
+          bridge: true,
         })
         .click(this.browser.findElement(By.css('[data-comp-name*="CurrencyInput"] input')))
         .pause(500)
-        .sendKeys(selector('[data-comp-name*="CurrencyInput"] input'), Key["1"])
+        .sendKeys(selector('[data-comp-name*="CurrencyInput"] input'), Key['1'])
         .pause(500)
-        .sendKeys(selector('[data-comp-name*="CurrencyInput"] input'), Key["2"])
+        .sendKeys(selector('[data-comp-name*="CurrencyInput"] input'), Key['2'])
         .pause(500)
-        .sendKeys(selector('[data-comp-name*="CurrencyInput"] input'), Key["3"])
+        .sendKeys(selector('[data-comp-name*="CurrencyInput"] input'), Key['3'])
         .pause(500)
-        .sendKeys(selector('[data-comp-name*="CurrencyInput"] input'), Key["4"])
-        .click(this.browser.findElement(By.css("button")))
+        .sendKeys(selector('[data-comp-name*="CurrencyInput"] input'), Key['4'])
+        .click(this.browser.findElement(By.css('button')))
         .pause(500)
-        .sendKeys(selector('[data-comp-name*="CurrencyInput"] input'), Key["5"])
+        .sendKeys(selector('[data-comp-name*="CurrencyInput"] input'), Key['5'])
         .pause(500)
-        .sendKeys(selector('[data-comp-name*="CurrencyInput"] input'), Key["6"])
+        .sendKeys(selector('[data-comp-name*="CurrencyInput"] input'), Key['6'])
         .pause(500)
-        .sendKeys(selector('[data-comp-name*="CurrencyInput"] input'), Key["7"])
+        .sendKeys(selector('[data-comp-name*="CurrencyInput"] input'), Key['7'])
         .pause(500)
-        .sendKeys(selector('[data-comp-name*="CurrencyInput"] input'), Key["8"])
+        .sendKeys(selector('[data-comp-name*="CurrencyInput"] input'), Key['8'])
         .perform();
-      await expect(await element.takeScreenshot()).to.matchImage("External focus and input");
+      await expect(await element.takeScreenshot()).to.matchImage('External focus and input');
     });
   });
 });

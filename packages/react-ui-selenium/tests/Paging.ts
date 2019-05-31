@@ -1,168 +1,171 @@
-describe("Paging", function() {
-  describe("GoToAbsensePage", function() {
-    it("plain", async function() {
-      const element = await this.browser.findElement(By.css("#test-element"));
-      await expect(await element.takeScreenshot()).to.matchImage("plain");
+import { expect } from 'chai';
+import { By, Key } from 'selenium-webdriver';
+
+describe('Paging', function() {
+  describe('GoToAbsensePage', function() {
+    it('plain', async function() {
+      const element = await this.browser.findElement(By.css('#test-element'));
+      await expect(await element.takeScreenshot()).to.matchImage('plain');
     });
-    it("hover", async function() {
-      const element = await this.browser.findElement(By.css("#test-element"));
+    it('hover', async function() {
+      const element = await this.browser.findElement(By.css('#test-element'));
       await this.browser
         .actions({
-          bridge: true
+          bridge: true,
         })
         .move({
-          origin: this.browser.findElement(By.css('[class^="Paging-pageLinkWrapper"]'))
+          origin: this.browser.findElement(By.css('[class^="Paging-pageLinkWrapper"]')),
         })
         .perform();
-      await expect(await element.takeScreenshot()).to.matchImage("hover");
+      await expect(await element.takeScreenshot()).to.matchImage('hover');
     });
-    it("change page by number", async function() {
-      const element = await this.browser.findElement(By.css("#test-element"));
+    it('change page by number', async function() {
+      const element = await this.browser.findElement(By.css('#test-element'));
       await this.browser
         .actions({
-          bridge: true
+          bridge: true,
         })
         .move({
-          origin: this.browser.findElement(By.css('[class^="Paging-pageLinkWrapper"]'))
+          origin: this.browser.findElement(By.css('[class^="Paging-pageLinkWrapper"]')),
         })
         .click(this.browser.findElement(By.css('[class^="Paging-pageLinkWrapper"]')))
         .perform();
-      await expect(await element.takeScreenshot()).to.matchImage("change page by number");
+      await expect(await element.takeScreenshot()).to.matchImage('change page by number');
     });
-    it("change page by forwardLink", async function() {
-      const element = await this.browser.findElement(By.css("#test-element"));
+    it('change page by forwardLink', async function() {
+      const element = await this.browser.findElement(By.css('#test-element'));
       await this.browser
         .actions({
-          bridge: true
+          bridge: true,
         })
         .move({
-          origin: this.browser.findElement(By.css('[class^="Paging-pageLinkWrapper"]'))
+          origin: this.browser.findElement(By.css('[class^="Paging-pageLinkWrapper"]')),
         })
         .click(this.browser.findElement(By.css('[class^="Paging-pageLinkWrapper"]')))
         .click(this.browser.findElement(By.css('[class^="Paging-forwardLink"]')))
         .perform();
-      await expect(await element.takeScreenshot()).to.matchImage("change page by forwardLink");
+      await expect(await element.takeScreenshot()).to.matchImage('change page by forwardLink');
     });
-    it("focused", async function() {
+    it('focused', async function() {
       [
         {
-          type: "skip",
-          args: ["ie11", 'в ie11 не получается "нажать" `gemini.CONTROL + gemini.ARROW_RIGHT`']
-        }
+          type: 'skip',
+          args: ['ie11', 'в ie11 не получается "нажать" `gemini.CONTROL + gemini.ARROW_RIGHT`'],
+        },
       ];
-      const element = await this.browser.findElement(By.css("#test-element"));
+      const element = await this.browser.findElement(By.css('#test-element'));
       await this.browser
         .actions({
-          bridge: true
+          bridge: true,
         })
         .click(this.browser.findElement(By.css('[class^="Paging-paging"]')))
         .perform();
-      await expect(await element.takeScreenshot()).to.matchImage("focused");
+      await expect(await element.takeScreenshot()).to.matchImage('focused');
     });
-    it("Move focus right", async function() {
+    it('Move focus right', async function() {
       [
         {
-          type: "skip",
-          args: ["ie11", 'в ie11 не получается "нажать" `gemini.CONTROL + gemini.ARROW_RIGHT`']
-        }
+          type: 'skip',
+          args: ['ie11', 'в ie11 не получается "нажать" `gemini.CONTROL + gemini.ARROW_RIGHT`'],
+        },
       ];
-      const element = await this.browser.findElement(By.css("#test-element"));
+      const element = await this.browser.findElement(By.css('#test-element'));
       await this.browser
         .actions({
-          bridge: true
+          bridge: true,
         })
         .click(this.browser.findElement(By.css('[class^="Paging-paging"]')))
-        .sendKeys(Key["ARROW_RIGHT"])
+        .sendKeys(Key.ARROW_RIGHT)
         .perform();
-      await expect(await element.takeScreenshot()).to.matchImage("Move focus right");
+      await expect(await element.takeScreenshot()).to.matchImage('Move focus right');
     });
-    it("Move to page by Ender", async function() {
+    it('Move to page by Ender', async function() {
       [
         {
-          type: "skip",
-          args: ["ie11", 'в ie11 не получается "нажать" `gemini.CONTROL + gemini.ARROW_RIGHT`']
-        }
+          type: 'skip',
+          args: ['ie11', 'в ie11 не получается "нажать" `gemini.CONTROL + gemini.ARROW_RIGHT`'],
+        },
       ];
-      const element = await this.browser.findElement(By.css("#test-element"));
+      const element = await this.browser.findElement(By.css('#test-element'));
       await this.browser
         .actions({
-          bridge: true
+          bridge: true,
         })
         .click(this.browser.findElement(By.css('[class^="Paging-paging"]')))
-        .sendKeys(Key["ARROW_RIGHT"])
-        .sendKeys(Key["ENTER"])
+        .sendKeys(Key.ARROW_RIGHT)
+        .sendKeys(Key.ENTER)
         .perform();
-      await expect(await element.takeScreenshot()).to.matchImage("Move to page by Ender");
+      await expect(await element.takeScreenshot()).to.matchImage('Move to page by Ender');
     });
-    it("Next page", async function() {
+    it('Next page', async function() {
       [
         {
-          type: "skip",
-          args: ["ie11", 'в ie11 не получается "нажать" `gemini.CONTROL + gemini.ARROW_RIGHT`']
-        }
+          type: 'skip',
+          args: ['ie11', 'в ie11 не получается "нажать" `gemini.CONTROL + gemini.ARROW_RIGHT`'],
+        },
       ];
-      const element = await this.browser.findElement(By.css("#test-element"));
+      const element = await this.browser.findElement(By.css('#test-element'));
       await this.browser
         .actions({
-          bridge: true
+          bridge: true,
         })
         .click(this.browser.findElement(By.css('[class^="Paging-paging"]')))
-        .sendKeys(Key["ARROW_RIGHT"])
-        .sendKeys(Key["ENTER"])
-        .sendKeys(Key["CONTROL"], Key["ARROW_RIGHT"])
+        .sendKeys(Key.ARROW_RIGHT)
+        .sendKeys(Key.ENTER)
+        .sendKeys(Key.CONTROL, Key.ARROW_RIGHT)
         .perform();
-      await expect(await element.takeScreenshot()).to.matchImage("Next page");
+      await expect(await element.takeScreenshot()).to.matchImage('Next page');
     });
-    it("focused_0", async function() {
+    it('focused_0', async function() {
       [
         {
-          type: "only",
-          args: ["ie11"]
-        }
+          type: 'only',
+          args: ['ie11'],
+        },
       ];
-      const element = await this.browser.findElement(By.css("#test-element"));
+      const element = await this.browser.findElement(By.css('#test-element'));
       await this.browser
         .actions({
-          bridge: true
+          bridge: true,
         })
         .click(this.browser.findElement(By.css('[class^="Paging-paging"]')))
         .perform();
-      await expect(await element.takeScreenshot()).to.matchImage("focused_0");
+      await expect(await element.takeScreenshot()).to.matchImage('focused_0');
     });
-    it("Move focus right_1", async function() {
+    it('Move focus right_1', async function() {
       [
         {
-          type: "only",
-          args: ["ie11"]
-        }
+          type: 'only',
+          args: ['ie11'],
+        },
       ];
-      const element = await this.browser.findElement(By.css("#test-element"));
+      const element = await this.browser.findElement(By.css('#test-element'));
       await this.browser
         .actions({
-          bridge: true
+          bridge: true,
         })
         .click(this.browser.findElement(By.css('[class^="Paging-paging"]')))
-        .sendKeys(Key["ARROW_RIGHT"])
+        .sendKeys(Key.ARROW_RIGHT)
         .perform();
-      await expect(await element.takeScreenshot()).to.matchImage("Move focus right_1");
+      await expect(await element.takeScreenshot()).to.matchImage('Move focus right_1');
     });
-    it("Move to page by Ender_2", async function() {
+    it('Move to page by Ender_2', async function() {
       [
         {
-          type: "only",
-          args: ["ie11"]
-        }
+          type: 'only',
+          args: ['ie11'],
+        },
       ];
-      const element = await this.browser.findElement(By.css("#test-element"));
+      const element = await this.browser.findElement(By.css('#test-element'));
       await this.browser
         .actions({
-          bridge: true
+          bridge: true,
         })
         .click(this.browser.findElement(By.css('[class^="Paging-paging"]')))
-        .sendKeys(Key["ARROW_RIGHT"])
-        .sendKeys(Key["ENTER"])
+        .sendKeys(Key.ARROW_RIGHT)
+        .sendKeys(Key.ENTER)
         .perform();
-      await expect(await element.takeScreenshot()).to.matchImage("Move to page by Ender_2");
+      await expect(await element.takeScreenshot()).to.matchImage('Move to page by Ender_2');
     });
   });
 });
