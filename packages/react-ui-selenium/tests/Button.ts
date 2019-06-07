@@ -1,6 +1,8 @@
 import { expect } from 'chai';
 import { By, Key } from 'selenium-webdriver';
 
+export const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
 describe('Button', function() {
   describe('playground', function() {
     it('idle', async function() {
@@ -19,32 +21,11 @@ describe('Button', function() {
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('hover');
     });
-    it('mouseLeave', async function() {
-      const element = await this.browser.findElement(By.css('#test-element'));
-      await this.browser
-        .actions({
-          bridge: true,
-        })
-        .move({
-          origin: this.browser.findElement(By.css('button')),
-        })
-        .move({
-          origin: this.browser.findElement(By.css('body')),
-        })
-        .perform();
-      await expect(await element.takeScreenshot()).to.matchImage('mouseLeave');
-    });
     it('pressed', async function() {
       const element = await this.browser.findElement(By.css('#test-element'));
       await this.browser
         .actions({
           bridge: true,
-        })
-        .move({
-          origin: this.browser.findElement(By.css('button')),
-        })
-        .move({
-          origin: this.browser.findElement(By.css('body')),
         })
         .move({
           origin: this.browser.findElement(By.css('button')),
@@ -59,38 +40,9 @@ describe('Button', function() {
         .actions({
           bridge: true,
         })
-        .move({
-          origin: this.browser.findElement(By.css('button')),
-        })
-        .move({
-          origin: this.browser.findElement(By.css('body')),
-        })
-        .move({
-          origin: this.browser.findElement(By.css('button')),
-        })
         .click(this.browser.findElement(By.css('button')))
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('clicked');
-    });
-    it('clickedOutside', async function() {
-      const element = await this.browser.findElement(By.css('#test-element'));
-      await this.browser
-        .actions({
-          bridge: true,
-        })
-        .move({
-          origin: this.browser.findElement(By.css('button')),
-        })
-        .move({
-          origin: this.browser.findElement(By.css('body')),
-        })
-        .move({
-          origin: this.browser.findElement(By.css('button')),
-        })
-        .click(this.browser.findElement(By.css('button')))
-        .click(this.browser.findElement(By.css('body')))
-        .perform();
-      await expect(await element.takeScreenshot()).to.matchImage('clickedOutside');
     });
     it('tabPress', async function() {
       const element = await this.browser.findElement(By.css('#test-element'));
@@ -120,32 +72,11 @@ describe('Button', function() {
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('hover');
     });
-    it('mouseLeave', async function() {
-      const element = await this.browser.findElement(By.css('#test-element'));
-      await this.browser
-        .actions({
-          bridge: true,
-        })
-        .move({
-          origin: this.browser.findElement(By.css('button')),
-        })
-        .move({
-          origin: this.browser.findElement(By.css('body')),
-        })
-        .perform();
-      await expect(await element.takeScreenshot()).to.matchImage('mouseLeave');
-    });
     it('pressed', async function() {
       const element = await this.browser.findElement(By.css('#test-element'));
       await this.browser
         .actions({
           bridge: true,
-        })
-        .move({
-          origin: this.browser.findElement(By.css('button')),
-        })
-        .move({
-          origin: this.browser.findElement(By.css('body')),
         })
         .move({
           origin: this.browser.findElement(By.css('button')),
@@ -160,38 +91,9 @@ describe('Button', function() {
         .actions({
           bridge: true,
         })
-        .move({
-          origin: this.browser.findElement(By.css('button')),
-        })
-        .move({
-          origin: this.browser.findElement(By.css('body')),
-        })
-        .move({
-          origin: this.browser.findElement(By.css('button')),
-        })
         .click(this.browser.findElement(By.css('button')))
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('clicked');
-    });
-    it('clickedOutside', async function() {
-      const element = await this.browser.findElement(By.css('#test-element'));
-      await this.browser
-        .actions({
-          bridge: true,
-        })
-        .move({
-          origin: this.browser.findElement(By.css('button')),
-        })
-        .move({
-          origin: this.browser.findElement(By.css('body')),
-        })
-        .move({
-          origin: this.browser.findElement(By.css('button')),
-        })
-        .click(this.browser.findElement(By.css('button')))
-        .click(this.browser.findElement(By.css('body')))
-        .perform();
-      await expect(await element.takeScreenshot()).to.matchImage('clickedOutside');
     });
     it('tabPress', async function() {
       const element = await this.browser.findElement(By.css('#test-element'));
@@ -221,32 +123,11 @@ describe('Button', function() {
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('hover');
     });
-    it('mouseLeave', async function() {
-      const element = await this.browser.findElement(By.css('#test-element'));
-      await this.browser
-        .actions({
-          bridge: true,
-        })
-        .move({
-          origin: this.browser.findElement(By.css('button')),
-        })
-        .move({
-          origin: this.browser.findElement(By.css('body')),
-        })
-        .perform();
-      await expect(await element.takeScreenshot()).to.matchImage('mouseLeave');
-    });
     it('pressed', async function() {
       const element = await this.browser.findElement(By.css('#test-element'));
       await this.browser
         .actions({
           bridge: true,
-        })
-        .move({
-          origin: this.browser.findElement(By.css('button')),
-        })
-        .move({
-          origin: this.browser.findElement(By.css('body')),
         })
         .move({
           origin: this.browser.findElement(By.css('button')),
@@ -261,38 +142,9 @@ describe('Button', function() {
         .actions({
           bridge: true,
         })
-        .move({
-          origin: this.browser.findElement(By.css('button')),
-        })
-        .move({
-          origin: this.browser.findElement(By.css('body')),
-        })
-        .move({
-          origin: this.browser.findElement(By.css('button')),
-        })
         .click(this.browser.findElement(By.css('button')))
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('clicked');
-    });
-    it('clickedOutside', async function() {
-      const element = await this.browser.findElement(By.css('#test-element'));
-      await this.browser
-        .actions({
-          bridge: true,
-        })
-        .move({
-          origin: this.browser.findElement(By.css('button')),
-        })
-        .move({
-          origin: this.browser.findElement(By.css('body')),
-        })
-        .move({
-          origin: this.browser.findElement(By.css('button')),
-        })
-        .click(this.browser.findElement(By.css('button')))
-        .click(this.browser.findElement(By.css('body')))
-        .perform();
-      await expect(await element.takeScreenshot()).to.matchImage('clickedOutside');
     });
     it('tabPress', async function() {
       const element = await this.browser.findElement(By.css('#test-element'));
@@ -322,32 +174,11 @@ describe('Button', function() {
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('hover');
     });
-    it('mouseLeave', async function() {
-      const element = await this.browser.findElement(By.css('#test-element'));
-      await this.browser
-        .actions({
-          bridge: true,
-        })
-        .move({
-          origin: this.browser.findElement(By.css('button')),
-        })
-        .move({
-          origin: this.browser.findElement(By.css('body')),
-        })
-        .perform();
-      await expect(await element.takeScreenshot()).to.matchImage('mouseLeave');
-    });
     it('pressed', async function() {
       const element = await this.browser.findElement(By.css('#test-element'));
       await this.browser
         .actions({
           bridge: true,
-        })
-        .move({
-          origin: this.browser.findElement(By.css('button')),
-        })
-        .move({
-          origin: this.browser.findElement(By.css('body')),
         })
         .move({
           origin: this.browser.findElement(By.css('button')),
@@ -362,39 +193,9 @@ describe('Button', function() {
         .actions({
           bridge: true,
         })
-        .move({
-          origin: this.browser.findElement(By.css('button')),
-        })
-        .move({
-          origin: this.browser.findElement(By.css('body')),
-        })
-        .move({
-          origin: this.browser.findElement(By.css('button')),
-        })
         .click(this.browser.findElement(By.css('button')))
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('clicked');
-    });
-    it('clickedOutside', async function() {
-      // FIXME: Don't pass in FF
-      const element = await this.browser.findElement(By.css('#test-element'));
-      await this.browser
-        .actions({
-          bridge: true,
-        })
-        .move({
-          origin: this.browser.findElement(By.css('button')),
-        })
-        .move({
-          origin: this.browser.findElement(By.css('body')),
-        })
-        .move({
-          origin: this.browser.findElement(By.css('button')),
-        })
-        .click(this.browser.findElement(By.css('button')))
-        .click(this.browser.findElement(By.css('body')))
-        .perform();
-      await expect(await element.takeScreenshot()).to.matchImage('clickedOutside');
     });
     it('tabPress', async function() {
       const element = await this.browser.findElement(By.css('#test-element'));
@@ -424,32 +225,11 @@ describe('Button', function() {
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('hover');
     });
-    it('mouseLeave', async function() {
-      const element = await this.browser.findElement(By.css('#test-element'));
-      await this.browser
-        .actions({
-          bridge: true,
-        })
-        .move({
-          origin: this.browser.findElement(By.css('button')),
-        })
-        .move({
-          origin: this.browser.findElement(By.css('body')),
-        })
-        .perform();
-      await expect(await element.takeScreenshot()).to.matchImage('mouseLeave');
-    });
     it('pressed', async function() {
       const element = await this.browser.findElement(By.css('#test-element'));
       await this.browser
         .actions({
           bridge: true,
-        })
-        .move({
-          origin: this.browser.findElement(By.css('button')),
-        })
-        .move({
-          origin: this.browser.findElement(By.css('body')),
         })
         .move({
           origin: this.browser.findElement(By.css('button')),
@@ -464,38 +244,9 @@ describe('Button', function() {
         .actions({
           bridge: true,
         })
-        .move({
-          origin: this.browser.findElement(By.css('button')),
-        })
-        .move({
-          origin: this.browser.findElement(By.css('body')),
-        })
-        .move({
-          origin: this.browser.findElement(By.css('button')),
-        })
         .click(this.browser.findElement(By.css('button')))
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('clicked');
-    });
-    it('clickedOutside', async function() {
-      const element = await this.browser.findElement(By.css('#test-element'));
-      await this.browser
-        .actions({
-          bridge: true,
-        })
-        .move({
-          origin: this.browser.findElement(By.css('button')),
-        })
-        .move({
-          origin: this.browser.findElement(By.css('body')),
-        })
-        .move({
-          origin: this.browser.findElement(By.css('button')),
-        })
-        .click(this.browser.findElement(By.css('button')))
-        .click(this.browser.findElement(By.css('body')))
-        .perform();
-      await expect(await element.takeScreenshot()).to.matchImage('clickedOutside');
     });
     it('tabPress', async function() {
       const element = await this.browser.findElement(By.css('#test-element'));
