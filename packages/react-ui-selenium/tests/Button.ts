@@ -33,6 +33,12 @@ describe('Button', function() {
         .press()
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('pressed');
+      await this.browser
+        .actions({
+          bridge: true,
+        })
+        .release()
+        .perform();
     });
     it('clicked', async function() {
       const element = await this.browser.findElement(By.css('#test-element'));
@@ -84,6 +90,12 @@ describe('Button', function() {
         .press()
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('pressed');
+      await this.browser
+        .actions({
+          bridge: true,
+        })
+        .release()
+        .perform();
     });
     it('clicked', async function() {
       const element = await this.browser.findElement(By.css('#test-element'));
@@ -135,6 +147,12 @@ describe('Button', function() {
         .press()
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('pressed');
+      await this.browser
+        .actions({
+          bridge: true,
+        })
+        .release()
+        .perform();
     });
     it('clicked', async function() {
       const element = await this.browser.findElement(By.css('#test-element'));
@@ -186,6 +204,12 @@ describe('Button', function() {
         .press()
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('pressed');
+      await this.browser
+        .actions({
+          bridge: true,
+        })
+        .release()
+        .perform();
     });
     it('clicked', async function() {
       const element = await this.browser.findElement(By.css('#test-element'));
@@ -237,6 +261,12 @@ describe('Button', function() {
         .press()
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('pressed');
+      await this.browser
+        .actions({
+          bridge: true,
+        })
+        .release()
+        .perform();
     });
     it('clicked', async function() {
       const element = await this.browser.findElement(By.css('#test-element'));
