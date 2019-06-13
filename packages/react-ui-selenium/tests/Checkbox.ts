@@ -1,8 +1,6 @@
 import { expect } from 'chai';
 import { By, Key } from 'selenium-webdriver';
 
-// TODO chrome hover on long label
-
 describe('Checkbox', function() {
   describe('plain', function() {
     it('plain', async function() {
@@ -43,7 +41,7 @@ describe('Checkbox', function() {
         .actions({
           bridge: true,
         })
-        .move({ origin: this.browser.findElement(By.css('body')), x: 0, y: 0 })
+        .move({ origin: this.browser.findElement(By.css('body')) })
         .press()
         .release()
         .sendKeys(Key.TAB)
@@ -62,10 +60,13 @@ describe('Checkbox', function() {
         .actions({
           bridge: true,
         })
-        .move({ origin: this.browser.findElement(By.css('body')), x: 0, y: 0 })
+        .move({ origin: this.browser.findElement(By.css('body')) })
         .press()
         .release()
         .sendKeys(Key.TAB)
+        .perform();
+      await this.browser
+        .actions({ bridge: true })
         .sendKeys(Key.SPACE)
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('spacePress');
