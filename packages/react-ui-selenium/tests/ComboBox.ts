@@ -24,6 +24,11 @@ describe('ComboBox', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css('[data-comp-name="InputLikeText"]')))
+        .perform();
+      await this.browser
+        .actions({
+          bridge: true,
+        })
         .move({
           origin: this.browser.findElement(By.css('[data-comp-name="MenuItem"]:nth-of-type(4)')),
         })
@@ -37,10 +42,19 @@ describe('ComboBox', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css('[data-comp-name="InputLikeText"]')))
-        .move({
-          origin: this.browser.findElement(By.css('[data-comp-name="MenuItem"]:nth-of-type(4)')),
+        .perform();
+      await this.browser
+        .actions({
+          bridge: true,
         })
-        .click(this.browser.findElement(By.css('[data-comp-name="MenuItem"]:nth-of-type(4)')))
+        .move({ origin: this.browser.findElement(By.css('[data-comp-name="MenuItem"]:nth-of-type(4)')) })
+        .perform();
+      await this.browser
+        .actions({
+          bridge: true,
+        })
+        .press()
+        .release()
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('selected');
     });
@@ -51,7 +65,13 @@ describe('ComboBox', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css('[data-comp-name="InputLikeText"]')))
-        .sendKeys(selector('input'), Key.Second)
+        .perform();
+      await this.browser
+        .actions({
+          bridge: true,
+        })
+        .sendKeys('Second')
+        .pause(500)
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('search result');
     });
@@ -62,7 +82,18 @@ describe('ComboBox', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css('[data-comp-name="InputLikeText"]')))
-        .sendKeys(selector('input'), Key.Second)
+        .perform();
+      await this.browser
+        .actions({
+          bridge: true,
+        })
+        .sendKeys('Second')
+        .pause(500)
+        .perform();
+      await this.browser
+        .actions({
+          bridge: true,
+        })
         .sendKeys(Key.ENTER)
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('selcted');
@@ -74,8 +105,24 @@ describe('ComboBox', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css('[data-comp-name="InputLikeText"]')))
-        .sendKeys(selector('input'), Key.Second)
+        .perform();
+      await this.browser
+        .actions({
+          bridge: true,
+        })
+        .sendKeys('Second')
+        .pause(500)
+        .perform();
+      await this.browser
+        .actions({
+          bridge: true,
+        })
         .sendKeys(Key.ENTER)
+        .perform();
+      await this.browser
+        .actions({
+          bridge: true,
+        })
         .click(this.browser.findElement(By.css('[data-comp-name="InputLikeText"]')))
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('opened again');
@@ -87,10 +134,13 @@ describe('ComboBox', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css('[data-comp-name="InputLikeText"]')))
-        .sendKeys(
-          selector('input'),
-          Key['\u0422\u0430\u043A\u043E\u0433\u043E \u0442\u043E\u0447\u043D\u043E \u043D\u0435\u0442\u0443'],
-        )
+        .perform();
+      await this.browser
+        .actions({
+          bridge: true,
+        })
+        .sendKeys('Такого точно нету')
+        .pause(500)
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('search result_0');
     });
@@ -121,17 +171,6 @@ describe('ComboBox', function() {
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('submit');
     });
-    it('editing', async function() {
-      const element = await this.browser.findElement(By.css('#test-element'));
-      await this.browser
-        .actions({
-          bridge: true,
-        })
-        .click(this.browser.findElement(By.css('[data-comp-name="InputLikeText"]')))
-        .sendKeys(selector('input'), Key.Second)
-        .perform();
-      await expect(await element.takeScreenshot()).to.matchImage('editing');
-    });
     it('select_1', async function() {
       const element = await this.browser.findElement(By.css('#test-element'));
       await this.browser
@@ -139,8 +178,20 @@ describe('ComboBox', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css('[data-comp-name="InputLikeText"]')))
-        .sendKeys(selector('input'), Key.Second)
-        .click(this.browser.findElement(By.css('body')))
+        .sendKeys('Second')
+        .perform();
+      await this.browser
+        .actions({
+          bridge: true,
+        })
+        .move({ origin: this.browser.findElement(By.css('body')) })
+        .perform();
+      await this.browser
+        .actions({
+          bridge: true,
+        })
+        .press()
+        .release()
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('select_1');
     });
@@ -151,8 +202,19 @@ describe('ComboBox', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css('[data-comp-name="InputLikeText"]')))
-        .sendKeys(selector('input'), Key.Second)
+        .sendKeys('Second')
+        .pause(500)
+        .perform();
+      await this.browser
+        .actions({
+          bridge: true,
+        })
         .click(this.browser.findElement(By.css('body')))
+        .perform();
+      await this.browser
+        .actions({
+          bridge: true,
+        })
         .click(this.browser.findElement(By.css('[data-comp-name="InputLikeText"]')))
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('selected_2');
@@ -172,11 +234,11 @@ describe('ComboBox', function() {
   });
   describe('open to top', function() {
     it('plain', async function() {
-      const element = await this.browser.findElement(By.css('#test-element'));
+      const element = await this.browser.findElement(By.css('[data-tid="container"]'));
       await expect(await element.takeScreenshot()).to.matchImage('plain');
     });
     it('opened', async function() {
-      const element = await this.browser.findElement(By.css('#test-element'));
+      const element = await this.browser.findElement(By.css('[data-tid="container"]'));
       await this.browser
         .actions({
           bridge: true,
@@ -186,12 +248,17 @@ describe('ComboBox', function() {
       await expect(await element.takeScreenshot()).to.matchImage('opened');
     });
     it('hovered', async function() {
-      const element = await this.browser.findElement(By.css('#test-element'));
+      const element = await this.browser.findElement(By.css('[data-tid="container"]'));
       await this.browser
         .actions({
           bridge: true,
         })
         .click(this.browser.findElement(By.css('[data-comp-name="InputLikeText"]')))
+        .perform();
+      await this.browser
+        .actions({
+          bridge: true,
+        })
         .move({
           origin: this.browser.findElement(By.css('[data-comp-name="MenuItem"]:nth-of-type(4)')),
         })
@@ -199,16 +266,27 @@ describe('ComboBox', function() {
       await expect(await element.takeScreenshot()).to.matchImage('hovered');
     });
     it('selected', async function() {
-      const element = await this.browser.findElement(By.css('#test-element'));
+      const element = await this.browser.findElement(By.css('[data-tid="container"]'));
       await this.browser
         .actions({
           bridge: true,
         })
         .click(this.browser.findElement(By.css('[data-comp-name="InputLikeText"]')))
+        .perform();
+      await this.browser
+        .actions({
+          bridge: true,
+        })
         .move({
           origin: this.browser.findElement(By.css('[data-comp-name="MenuItem"]:nth-of-type(4)')),
         })
-        .click(this.browser.findElement(By.css('[data-comp-name="MenuItem"]:nth-of-type(4)')))
+        .perform();
+      await this.browser
+        .actions({
+          bridge: true,
+        })
+        .press()
+        .release()
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('selected');
     });
@@ -252,6 +330,7 @@ describe('ComboBox', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css("[data-comp-name='Toggle']")))
+        .pause(200)
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('with error');
     });
@@ -262,7 +341,14 @@ describe('ComboBox', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css("[data-comp-name='Toggle']")))
+        .pause(200)
+        .perform();
+      await this.browser
+        .actions({
+          bridge: true,
+        })
         .click(this.browser.findElement(By.css("[data-comp-name='Toggle']")))
+        .pause(200)
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('plain again');
     });
@@ -295,6 +381,11 @@ describe('ComboBox', function() {
           bridge: true,
         })
         .sendKeys(Key.ENTER)
+        .perform();
+      await this.browser
+        .actions({
+          bridge: true,
+        })
         .click(this.browser.findElement(By.css('[class^="Input-root"]')))
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('after click back on the first field');
