@@ -1,8 +1,6 @@
 import { expect } from 'chai';
 import { By, Key } from 'selenium-webdriver';
 
-export const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
-
 describe('Button', function() {
   describe('playground', function() {
     it('idle', async function() {
