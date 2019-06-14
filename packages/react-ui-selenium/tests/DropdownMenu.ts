@@ -14,6 +14,11 @@ describe('DropdownMenu', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css('[class^="PopupMenu-caption"]')))
+        .perform();
+      await this.browser
+        .actions({
+          bridge: true,
+        })
         .click(this.browser.findElement(By.css('[class^="PopupMenu-caption"]')))
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('clickAfterClickedOnCaption');
@@ -25,23 +30,8 @@ describe('DropdownMenu', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css('[class^="PopupMenu-caption"]')))
-        .click(this.browser.findElement(By.css('[class^="PopupMenu-caption"]')))
-        .click(this.browser.findElement(By.css('[class^="PopupMenu-caption"]')))
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('clicked');
-    });
-    it('clickedOutside', async function() {
-      const element = await this.browser.findElement(By.css('#test-element'));
-      await this.browser
-        .actions({
-          bridge: true,
-        })
-        .click(this.browser.findElement(By.css('[class^="PopupMenu-caption"]')))
-        .click(this.browser.findElement(By.css('[class^="PopupMenu-caption"]')))
-        .click(this.browser.findElement(By.css('[class^="PopupMenu-caption"]')))
-        .click(this.browser.findElement(By.css('body')))
-        .perform();
-      await expect(await element.takeScreenshot()).to.matchImage('clickedOutside');
     });
     it('tabPress', async function() {
       const element = await this.browser.findElement(By.css('#test-element'));
@@ -49,10 +39,6 @@ describe('DropdownMenu', function() {
         .actions({
           bridge: true,
         })
-        .click(this.browser.findElement(By.css('[class^="PopupMenu-caption"]')))
-        .click(this.browser.findElement(By.css('[class^="PopupMenu-caption"]')))
-        .click(this.browser.findElement(By.css('[class^="PopupMenu-caption"]')))
-        .click(this.browser.findElement(By.css('body')))
         .sendKeys(Key.TAB)
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('tabPress');
@@ -63,11 +49,12 @@ describe('DropdownMenu', function() {
         .actions({
           bridge: true,
         })
-        .click(this.browser.findElement(By.css('[class^="PopupMenu-caption"]')))
-        .click(this.browser.findElement(By.css('[class^="PopupMenu-caption"]')))
-        .click(this.browser.findElement(By.css('[class^="PopupMenu-caption"]')))
-        .click(this.browser.findElement(By.css('body')))
         .sendKeys(Key.TAB)
+        .perform();
+      await this.browser
+        .actions({
+          bridge: true,
+        })
         .sendKeys(Key.ENTER)
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('enterPress');
@@ -78,12 +65,18 @@ describe('DropdownMenu', function() {
         .actions({
           bridge: true,
         })
-        .click(this.browser.findElement(By.css('[class^="PopupMenu-caption"]')))
-        .click(this.browser.findElement(By.css('[class^="PopupMenu-caption"]')))
-        .click(this.browser.findElement(By.css('[class^="PopupMenu-caption"]')))
-        .click(this.browser.findElement(By.css('body')))
         .sendKeys(Key.TAB)
+        .perform();
+      await this.browser
+        .actions({
+          bridge: true,
+        })
         .sendKeys(Key.ENTER)
+        .perform();
+      await this.browser
+        .actions({
+          bridge: true,
+        })
         .sendKeys(Key.ESCAPE)
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('escapePress');
@@ -91,37 +84,45 @@ describe('DropdownMenu', function() {
   });
   describe('With header and footer', function() {
     it('clicked', async function() {
-      const element = await this.browser.findElement(By.css('html'));
       await this.browser
         .actions({
           bridge: true,
         })
         .click(this.browser.findElement(By.css('[class^="PopupMenu-caption"]')))
         .perform();
-      await expect(await element.takeScreenshot()).to.matchImage('clicked');
+      await expect(await this.browser.takeScreenshot()).to.matchImage('clicked');
     });
     it('scrolled by 100', async function() {
-      const element = await this.browser.findElement(By.css('html'));
       await this.browser
         .actions({
           bridge: true,
         })
         .click(this.browser.findElement(By.css('[class^="PopupMenu-caption"]')))
-        .executeJS()
         .perform();
-      await expect(await element.takeScreenshot()).to.matchImage('scrolled by 100');
+      await this.browser.executeScript(function() {
+        // tslint:disable
+        // @ts-ignore
+        var scrollContainer: Element = window.document.querySelector('[class^="ScrollContainer-inner"]');
+        scrollContainer.scrollTop += 100;
+        // tslint:enable
+      });
+      await expect(await this.browser.takeScreenshot()).to.matchImage('scrolled by 100');
     });
     it('scrolled down to bottom', async function() {
-      const element = await this.browser.findElement(By.css('html'));
       await this.browser
         .actions({
           bridge: true,
         })
         .click(this.browser.findElement(By.css('[class^="PopupMenu-caption"]')))
-        .executeJS()
-        .executeJS()
         .perform();
-      await expect(await element.takeScreenshot()).to.matchImage('scrolled down to bottom');
+      await this.browser.executeScript(function() {
+        // tslint:disable
+        // @ts-ignore
+        var scrollContainer: Element = window.document.querySelector('[class^="ScrollContainer-inner"]');
+        scrollContainer.scrollTop += scrollContainer.scrollHeight;
+        // tslint:enable
+      });
+      await expect(await this.browser.takeScreenshot()).to.matchImage('scrolled down to bottom');
     });
   });
 });
