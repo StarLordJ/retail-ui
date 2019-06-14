@@ -22,22 +22,10 @@ describe('FxInput', function() {
   });
   describe('with width', function() {
     it('inside auto container', async function() {
-      [
-        {
-          type: 'ignoreElements',
-          args: ['#toggle-width'],
-        },
-      ];
       const element = await this.browser.findElement(By.css('#test-element'));
       await expect(await element.takeScreenshot()).to.matchImage('inside auto container');
     });
     it('inside fixed container', async function() {
-      [
-        {
-          type: 'ignoreElements',
-          args: ['#toggle-width'],
-        },
-      ];
       const element = await this.browser.findElement(By.css('#test-element'));
       await this.browser
         .actions({
