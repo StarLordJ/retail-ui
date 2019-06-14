@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { By } from 'selenium-webdriver';
+import { By, until } from 'selenium-webdriver';
 
 describe('DatePicker', function() {
   describe('with mouseevent handlers', function() {
@@ -14,19 +14,22 @@ describe('DatePicker', function() {
       await expect(await element.takeScreenshot()).to.matchImage('opened');
     });
     it('DateSelect month', async function() {
-      [
-        {
-          type: 'skip',
-          args: ['firefox', 'в firefox почему-то закрывается дэйтпикер после клика на DateSelect'],
-        },
-      ];
       const element = await this.browser.findElement(By.css('#test-element'));
       await this.browser
         .actions({
           bridge: true,
         })
         .click(this.browser.findElement(By.css('[class^="DatePicker-root"]')))
-        .wait('[class^="MonthView-month"]:first-child [class^="MonthView-headerMonth"] [class^="DateSelect-caption"]')
+        .perform();
+      await this.browser.wait(
+        until.elementLocated(
+          By.css(
+            '[class^="MonthView-month"]:first-child [class^="MonthView-headerMonth"] [class^="DateSelect-caption"]',
+          ),
+        ),
+      );
+      await this.browser
+        .actions({ bridge: true })
         .click(
           this.browser.findElement(
             By.css(
@@ -38,26 +41,22 @@ describe('DatePicker', function() {
       await expect(await element.takeScreenshot()).to.matchImage('DateSelect month');
     });
     it('DateSelect year', async function() {
-      [
-        {
-          type: 'skip',
-          args: ['firefox', 'в firefox почему-то закрывается дэйтпикер после клика на DateSelect'],
-        },
-      ];
       const element = await this.browser.findElement(By.css('#test-element'));
       await this.browser
         .actions({
           bridge: true,
         })
         .click(this.browser.findElement(By.css('[class^="DatePicker-root"]')))
-        .wait('[class^="MonthView-month"]:first-child [class^="MonthView-headerMonth"] [class^="DateSelect-caption"]')
-        .click(
-          this.browser.findElement(
-            By.css(
-              '[class^="MonthView-month"]:first-child [class^="MonthView-headerMonth"] [class^="DateSelect-caption"]',
-            ),
+        .perform();
+      await this.browser.wait(
+        until.elementLocated(
+          By.css(
+            '[class^="MonthView-month"]:first-child [class^="MonthView-headerYear"] [class^="DateSelect-caption"]',
           ),
-        )
+        ),
+      );
+      await this.browser
+        .actions({ bridge: true })
         .click(
           this.browser.findElement(
             By.css(
@@ -71,19 +70,22 @@ describe('DatePicker', function() {
   });
   describe('DatePicker with min max date', function() {
     it('DateSelect months', async function() {
-      [
-        {
-          type: 'skip',
-          args: ['firefox', 'в firefox почему-то закрывается дэйтпикер после клика на DateSelect'],
-        },
-      ];
       const element = await this.browser.findElement(By.css('#test-element'));
       await this.browser
         .actions({
           bridge: true,
         })
         .click(this.browser.findElement(By.css('[class^="DatePicker-root"]')))
-        .wait('[class^="MonthView-month"]:first-child [class^="MonthView-headerMonth"] [class^="DateSelect-caption"]')
+        .perform();
+      await this.browser.wait(
+        until.elementLocated(
+          By.css(
+            '[class^="MonthView-month"]:first-child [class^="MonthView-headerMonth"] [class^="DateSelect-caption"]',
+          ),
+        ),
+      );
+      await this.browser
+        .actions({ bridge: true })
         .click(
           this.browser.findElement(
             By.css(
@@ -95,26 +97,22 @@ describe('DatePicker', function() {
       await expect(await element.takeScreenshot()).to.matchImage('DateSelect months');
     });
     it('DateSelect years', async function() {
-      [
-        {
-          type: 'skip',
-          args: ['firefox', 'в firefox почему-то закрывается дэйтпикер после клика на DateSelect'],
-        },
-      ];
       const element = await this.browser.findElement(By.css('#test-element'));
       await this.browser
         .actions({
           bridge: true,
         })
         .click(this.browser.findElement(By.css('[class^="DatePicker-root"]')))
-        .wait('[class^="MonthView-month"]:first-child [class^="MonthView-headerMonth"] [class^="DateSelect-caption"]')
-        .click(
-          this.browser.findElement(
-            By.css(
-              '[class^="MonthView-month"]:first-child [class^="MonthView-headerMonth"] [class^="DateSelect-caption"]',
-            ),
+        .perform();
+      await this.browser.wait(
+        until.elementLocated(
+          By.css(
+            '[class^="MonthView-month"]:first-child [class^="MonthView-headerYear"] [class^="DateSelect-caption"]',
           ),
-        )
+        ),
+      );
+      await this.browser
+        .actions({ bridge: true })
         .click(
           this.browser.findElement(
             By.css(
