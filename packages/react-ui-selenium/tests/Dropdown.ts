@@ -24,6 +24,11 @@ describe('Dropdown', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css('[data-comp-name^="Dropdown"]')))
+        .perform();
+      await this.browser
+        .actions({
+          bridge: true,
+        })
         .move({
           origin: this.browser.findElement(By.css('[data-comp-name="MenuItem"]')),
         })
@@ -37,10 +42,12 @@ describe('Dropdown', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css('[data-comp-name^="Dropdown"]')))
-        .move({
-          origin: this.browser.findElement(By.css('[data-comp-name="MenuItem"]')),
+        .perform();
+      await this.browser
+        .actions({
+          bridge: true,
         })
-        .click(this.browser.findElement(By.css('[data-comp-name^="Dropdown"]')))
+        .click(this.browser.findElement(By.css('[data-comp-name="MenuItem"]')))
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('selected item');
     });
