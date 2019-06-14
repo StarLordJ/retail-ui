@@ -3,57 +3,41 @@ import { By } from 'selenium-webdriver';
 
 describe('DropdownContainer', function() {
   describe('various aligns, portals, items and scrolls', function() {
-    it('shot', async function() {
-      [
-        {
-          type: 'ignoreElements',
-          args: ['#buttons'],
-        },
-      ];
-      const element = await this.browser.findElement(By.css('html'));
-      await expect(await element.takeScreenshot()).to.matchImage('shot');
+    it('short Items', async function() {
+      await expect(await this.browser.takeScreenshot()).to.matchImage('short Items');
     });
-    it('shot_0', async function() {
-      [
-        {
-          type: 'ignoreElements',
-          args: ['#buttons'],
-        },
-      ];
-      const element = await this.browser.findElement(By.css('html'));
+    it('short Items scroll', async function() {
+      await this.browser.executeScript(function() {
+        // tslint:disable
+        // @ts-ignore
+        var innerScroll: Element = window.document.querySelector('#inner-scroll');
+        innerScroll.scrollTop = innerScroll.scrollHeight;
+        innerScroll.scrollLeft = innerScroll.scrollWidth;
+        // tslint:enable
+      });
+      await expect(await this.browser.takeScreenshot()).to.matchImage('short Items scroll');
+    });
+    it('long Items', async function() {
       await this.browser
-        .actions({
-          bridge: true,
-        })
-        .executeJS()
+        .actions({ bridge: true })
+        .click(this.browser.findElement(By.css('#buttons button')))
         .perform();
-      await expect(await element.takeScreenshot()).to.matchImage('shot_0');
+      await expect(await this.browser.takeScreenshot()).to.matchImage('long Items');
     });
-    it('shot_1', async function() {
-      [
-        {
-          type: 'ignoreElements',
-          args: ['#buttons'],
-        },
-      ];
-      const element = await this.browser.findElement(By.css('html'));
-      await expect(await element.takeScreenshot()).to.matchImage('shot_1');
-    });
-    it('shot_2', async function() {
-      [
-        {
-          type: 'ignoreElements',
-          args: ['#buttons'],
-        },
-      ];
-      const element = await this.browser.findElement(By.css('html'));
+    it('long Items scroll', async function() {
       await this.browser
-        .actions({
-          bridge: true,
-        })
-        .executeJS()
+        .actions({ bridge: true })
+        .click(this.browser.findElement(By.css('#buttons button')))
         .perform();
-      await expect(await element.takeScreenshot()).to.matchImage('shot_2');
+      await this.browser.executeScript(function() {
+        // tslint:disable
+        // @ts-ignore
+        var innerScroll: Element = window.document.querySelector('#inner-scroll');
+        innerScroll.scrollTop = innerScroll.scrollHeight;
+        innerScroll.scrollLeft = innerScroll.scrollWidth;
+        // tslint:enable
+      });
+      await expect(await this.browser.takeScreenshot()).to.matchImage('long Items scroll');
     });
   });
 });
