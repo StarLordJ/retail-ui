@@ -1,7 +1,7 @@
 require('ts-node').register({ files: true, transpileOnly: true });
 
 const config = {
-  gridUrl: 'http://screen-dbg:shot@grid.testkontur.ru/wd/hub',
+  gridUrl: 'http://screen:shot@grid.testkontur.ru/wd/hub',
   address: {
     host: 'localhost',
     port: 6060,
