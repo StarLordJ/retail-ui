@@ -28,23 +28,11 @@ describe('Menu', function() {
   });
   describe('with maxHeight', function() {
     it('idle', async function() {
-      [
-        {
-          type: 'ignoreElements',
-          args: ['#move-buttons'],
-        },
-      ];
-      const element = await this.browser.findElement(By.css('#menu-test-container'));
+      const element = await this.browser.findElement(By.css('[data-tid="menu-container"'));
       await expect(await element.takeScreenshot()).to.matchImage('idle');
     });
     it('moved up from top to the last Item', async function() {
-      [
-        {
-          type: 'ignoreElements',
-          args: ['#move-buttons'],
-        },
-      ];
-      const element = await this.browser.findElement(By.css('#menu-test-container'));
+      const element = await this.browser.findElement(By.css('[data-tid="menu-container"'));
       await this.browser
         .actions({
           bridge: true,
@@ -54,13 +42,7 @@ describe('Menu', function() {
       await expect(await element.takeScreenshot()).to.matchImage('moved up from top to the last Item');
     });
     it('moved up from bottom to the first Item', async function() {
-      [
-        {
-          type: 'ignoreElements',
-          args: ['#move-buttons'],
-        },
-      ];
-      const element = await this.browser.findElement(By.css('#menu-test-container'));
+      const element = await this.browser.findElement(By.css('[data-tid="menu-container"'));
       await this.browser
         .actions({
           bridge: true,
@@ -72,13 +54,7 @@ describe('Menu', function() {
       await expect(await element.takeScreenshot()).to.matchImage('moved up from bottom to the first Item');
     });
     it('moved down from top to the last Item', async function() {
-      [
-        {
-          type: 'ignoreElements',
-          args: ['#move-buttons'],
-        },
-      ];
-      const element = await this.browser.findElement(By.css('#menu-test-container'));
+      const element = await this.browser.findElement(By.css('[data-tid="menu-container"'));
       await this.browser
         .actions({
           bridge: true,
@@ -92,13 +68,7 @@ describe('Menu', function() {
       await expect(await element.takeScreenshot()).to.matchImage('moved down from top to the last Item');
     });
     it('moved down from bottom to the first Item', async function() {
-      [
-        {
-          type: 'ignoreElements',
-          args: ['#move-buttons'],
-        },
-      ];
-      const element = await this.browser.findElement(By.css('#menu-test-container'));
+      const element = await this.browser.findElement(By.css('[data-tid="menu-container"'));
       await this.browser
         .actions({
           bridge: true,
