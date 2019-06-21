@@ -164,7 +164,7 @@ describe('Input', function() {
     });
     it('Password small', async function() {
       const element = await this.browser.findElement(By.css('#password-small-input-wrapper'));
-      await expect(await element.takeScreenshot()).to.matchImage('Plain_9');
+      await expect(await element.takeScreenshot()).to.matchImage('Password small');
     });
     it('Password large', async function() {
       const element = await this.browser.findElement(By.css('#password-large-input-wrapper'));

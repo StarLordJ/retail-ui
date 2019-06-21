@@ -287,7 +287,7 @@ describe('Button', function() {
       await expect(await element.takeScreenshot()).to.matchImage('tabPress');
     });
   });
-  describe('arrow table', function() {
+  describe('different content', function() {
     it('plain', async function() {
       const element = await this.browser.findElement(By.css('#test-element'));
       await expect(await element.takeScreenshot()).to.matchImage('plain');
@@ -299,28 +299,20 @@ describe('Button', function() {
       await expect(await element.takeScreenshot()).to.matchImage('plain');
     });
   });
-  describe('with width', function() {
-    it('plain', async function() {
-      const element = await this.browser.findElement(By.css('#test-element'));
-      await expect(await element.takeScreenshot()).to.matchImage('plain');
-    });
-  });
   describe('different aligns', function() {
     it('plain', async function() {
       const element = await this.browser.findElement(By.css('#test-element'));
       await expect(await element.takeScreenshot()).to.matchImage('plain');
     });
   });
-  describe('different visual states', function() {
+  describe('default combination', function() {
     it('page - 1', async function() {
       const element = await this.browser.findElement(By.css('[data-comp-name~="ComponentTable"]'));
       await expect(await element.takeScreenshot()).to.matchImage('page - 1');
     });
     it('page - 2', async function() {
       await this.browser
-        .actions({
-          bridge: true,
-        })
+        .actions({ bridge: true })
         .click(this.browser.findElement(By.css('#next-page')))
         .perform();
       const element = await this.browser.findElement(By.css('[data-comp-name~="ComponentTable"]'));
@@ -328,9 +320,7 @@ describe('Button', function() {
     });
     it('page - 3', async function() {
       await this.browser
-        .actions({
-          bridge: true,
-        })
+        .actions({ bridge: true })
         .click(this.browser.findElement(By.css('#next-page')))
         .click(this.browser.findElement(By.css('#next-page')))
         .perform();
@@ -339,9 +329,7 @@ describe('Button', function() {
     });
     it('page - 4', async function() {
       await this.browser
-        .actions({
-          bridge: true,
-        })
+        .actions({ bridge: true })
         .click(this.browser.findElement(By.css('#next-page')))
         .click(this.browser.findElement(By.css('#next-page')))
         .click(this.browser.findElement(By.css('#next-page')))
@@ -351,9 +339,7 @@ describe('Button', function() {
     });
     it('page - 5', async function() {
       await this.browser
-        .actions({
-          bridge: true,
-        })
+        .actions({ bridge: true })
         .click(this.browser.findElement(By.css('#next-page')))
         .click(this.browser.findElement(By.css('#next-page')))
         .click(this.browser.findElement(By.css('#next-page')))
@@ -361,80 +347,16 @@ describe('Button', function() {
         .perform();
       const element = await this.browser.findElement(By.css('[data-comp-name~="ComponentTable"]'));
       await expect(await element.takeScreenshot()).to.matchImage('page - 5');
-    });
-    it('page - 6', async function() {
-      await this.browser
-        .actions({
-          bridge: true,
-        })
-        .click(this.browser.findElement(By.css('#next-page')))
-        .click(this.browser.findElement(By.css('#next-page')))
-        .click(this.browser.findElement(By.css('#next-page')))
-        .click(this.browser.findElement(By.css('#next-page')))
-        .click(this.browser.findElement(By.css('#next-page')))
-        .perform();
-      const element = await this.browser.findElement(By.css('[data-comp-name~="ComponentTable"]'));
-      await expect(await element.takeScreenshot()).to.matchImage('page - 6');
-    });
-    it('page - 7', async function() {
-      await this.browser
-        .actions({
-          bridge: true,
-        })
-        .click(this.browser.findElement(By.css('#next-page')))
-        .click(this.browser.findElement(By.css('#next-page')))
-        .click(this.browser.findElement(By.css('#next-page')))
-        .click(this.browser.findElement(By.css('#next-page')))
-        .click(this.browser.findElement(By.css('#next-page')))
-        .click(this.browser.findElement(By.css('#next-page')))
-        .perform();
-      const element = await this.browser.findElement(By.css('[data-comp-name~="ComponentTable"]'));
-      await expect(await element.takeScreenshot()).to.matchImage('page - 7');
-    });
-    it('page - 8', async function() {
-      await this.browser
-        .actions({
-          bridge: true,
-        })
-        .click(this.browser.findElement(By.css('#next-page')))
-        .click(this.browser.findElement(By.css('#next-page')))
-        .click(this.browser.findElement(By.css('#next-page')))
-        .click(this.browser.findElement(By.css('#next-page')))
-        .click(this.browser.findElement(By.css('#next-page')))
-        .click(this.browser.findElement(By.css('#next-page')))
-        .click(this.browser.findElement(By.css('#next-page')))
-        .perform();
-      const element = await this.browser.findElement(By.css('[data-comp-name~="ComponentTable"]'));
-      await expect(await element.takeScreenshot()).to.matchImage('page - 8');
-    });
-    it('page - 9', async function() {
-      await this.browser
-        .actions({
-          bridge: true,
-        })
-        .click(this.browser.findElement(By.css('#next-page')))
-        .click(this.browser.findElement(By.css('#next-page')))
-        .click(this.browser.findElement(By.css('#next-page')))
-        .click(this.browser.findElement(By.css('#next-page')))
-        .click(this.browser.findElement(By.css('#next-page')))
-        .click(this.browser.findElement(By.css('#next-page')))
-        .click(this.browser.findElement(By.css('#next-page')))
-        .click(this.browser.findElement(By.css('#next-page')))
-        .perform();
-      const element = await this.browser.findElement(By.css('[data-comp-name~="ComponentTable"]'));
-      await expect(await element.takeScreenshot()).to.matchImage('page - 9');
     });
   });
-  describe('different content', function() {
+  describe('combinations with warning', function() {
     it('page - 1', async function() {
       const element = await this.browser.findElement(By.css('[data-comp-name~="ComponentTable"]'));
       await expect(await element.takeScreenshot()).to.matchImage('page - 1');
     });
     it('page - 2', async function() {
       await this.browser
-        .actions({
-          bridge: true,
-        })
+        .actions({ bridge: true })
         .click(this.browser.findElement(By.css('#next-page')))
         .perform();
       const element = await this.browser.findElement(By.css('[data-comp-name~="ComponentTable"]'));
@@ -442,9 +364,7 @@ describe('Button', function() {
     });
     it('page - 3', async function() {
       await this.browser
-        .actions({
-          bridge: true,
-        })
+        .actions({ bridge: true })
         .click(this.browser.findElement(By.css('#next-page')))
         .click(this.browser.findElement(By.css('#next-page')))
         .perform();
@@ -453,9 +373,7 @@ describe('Button', function() {
     });
     it('page - 4', async function() {
       await this.browser
-        .actions({
-          bridge: true,
-        })
+        .actions({ bridge: true })
         .click(this.browser.findElement(By.css('#next-page')))
         .click(this.browser.findElement(By.css('#next-page')))
         .click(this.browser.findElement(By.css('#next-page')))
@@ -465,9 +383,7 @@ describe('Button', function() {
     });
     it('page - 5', async function() {
       await this.browser
-        .actions({
-          bridge: true,
-        })
+        .actions({ bridge: true })
         .click(this.browser.findElement(By.css('#next-page')))
         .click(this.browser.findElement(By.css('#next-page')))
         .click(this.browser.findElement(By.css('#next-page')))
@@ -476,50 +392,269 @@ describe('Button', function() {
       const element = await this.browser.findElement(By.css('[data-comp-name~="ComponentTable"]'));
       await expect(await element.takeScreenshot()).to.matchImage('page - 5');
     });
-    it('page - 6', async function() {
-      await this.browser
-        .actions({
-          bridge: true,
-        })
-        .click(this.browser.findElement(By.css('#next-page')))
-        .click(this.browser.findElement(By.css('#next-page')))
-        .click(this.browser.findElement(By.css('#next-page')))
-        .click(this.browser.findElement(By.css('#next-page')))
-        .click(this.browser.findElement(By.css('#next-page')))
-        .perform();
+  });
+  describe('combinations with error', function() {
+    it('page - 1', async function() {
       const element = await this.browser.findElement(By.css('[data-comp-name~="ComponentTable"]'));
-      await expect(await element.takeScreenshot()).to.matchImage('page - 6');
+      await expect(await element.takeScreenshot()).to.matchImage('page - 1');
     });
-    it('page - 7', async function() {
+    it('page - 2', async function() {
       await this.browser
-        .actions({
-          bridge: true,
-        })
-        .click(this.browser.findElement(By.css('#next-page')))
-        .click(this.browser.findElement(By.css('#next-page')))
-        .click(this.browser.findElement(By.css('#next-page')))
-        .click(this.browser.findElement(By.css('#next-page')))
-        .click(this.browser.findElement(By.css('#next-page')))
+        .actions({ bridge: true })
         .click(this.browser.findElement(By.css('#next-page')))
         .perform();
       const element = await this.browser.findElement(By.css('[data-comp-name~="ComponentTable"]'));
-      await expect(await element.takeScreenshot()).to.matchImage('page - 7');
+      await expect(await element.takeScreenshot()).to.matchImage('page - 2');
     });
-    it('page - 8', async function() {
+    it('page - 3', async function() {
       await this.browser
-        .actions({
-          bridge: true,
-        })
+        .actions({ bridge: true })
+        .click(this.browser.findElement(By.css('#next-page')))
+        .click(this.browser.findElement(By.css('#next-page')))
+        .perform();
+      const element = await this.browser.findElement(By.css('[data-comp-name~="ComponentTable"]'));
+      await expect(await element.takeScreenshot()).to.matchImage('page - 3');
+    });
+    it('page - 4', async function() {
+      await this.browser
+        .actions({ bridge: true })
         .click(this.browser.findElement(By.css('#next-page')))
         .click(this.browser.findElement(By.css('#next-page')))
         .click(this.browser.findElement(By.css('#next-page')))
+        .perform();
+      const element = await this.browser.findElement(By.css('[data-comp-name~="ComponentTable"]'));
+      await expect(await element.takeScreenshot()).to.matchImage('page - 4');
+    });
+    it('page - 5', async function() {
+      await this.browser
+        .actions({ bridge: true })
         .click(this.browser.findElement(By.css('#next-page')))
         .click(this.browser.findElement(By.css('#next-page')))
         .click(this.browser.findElement(By.css('#next-page')))
         .click(this.browser.findElement(By.css('#next-page')))
         .perform();
       const element = await this.browser.findElement(By.css('[data-comp-name~="ComponentTable"]'));
-      await expect(await element.takeScreenshot()).to.matchImage('page - 8');
+      await expect(await element.takeScreenshot()).to.matchImage('page - 5');
+    });
+  });
+  describe('combinations with focus', function() {
+    it('page - 1', async function() {
+      const element = await this.browser.findElement(By.css('[data-comp-name~="ComponentTable"]'));
+      await expect(await element.takeScreenshot()).to.matchImage('page - 1');
+    });
+    it('page - 2', async function() {
+      await this.browser
+        .actions({ bridge: true })
+        .click(this.browser.findElement(By.css('#next-page')))
+        .perform();
+      const element = await this.browser.findElement(By.css('[data-comp-name~="ComponentTable"]'));
+      await expect(await element.takeScreenshot()).to.matchImage('page - 2');
+    });
+    it('page - 3', async function() {
+      await this.browser
+        .actions({ bridge: true })
+        .click(this.browser.findElement(By.css('#next-page')))
+        .click(this.browser.findElement(By.css('#next-page')))
+        .perform();
+      const element = await this.browser.findElement(By.css('[data-comp-name~="ComponentTable"]'));
+      await expect(await element.takeScreenshot()).to.matchImage('page - 3');
+    });
+    it('page - 4', async function() {
+      await this.browser
+        .actions({ bridge: true })
+        .click(this.browser.findElement(By.css('#next-page')))
+        .click(this.browser.findElement(By.css('#next-page')))
+        .click(this.browser.findElement(By.css('#next-page')))
+        .perform();
+      const element = await this.browser.findElement(By.css('[data-comp-name~="ComponentTable"]'));
+      await expect(await element.takeScreenshot()).to.matchImage('page - 4');
+    });
+    it('page - 5', async function() {
+      await this.browser
+        .actions({ bridge: true })
+        .click(this.browser.findElement(By.css('#next-page')))
+        .click(this.browser.findElement(By.css('#next-page')))
+        .click(this.browser.findElement(By.css('#next-page')))
+        .click(this.browser.findElement(By.css('#next-page')))
+        .perform();
+      const element = await this.browser.findElement(By.css('[data-comp-name~="ComponentTable"]'));
+      await expect(await element.takeScreenshot()).to.matchImage('page - 5');
+    });
+  });
+  describe('loading combinations', function() {
+    it('page - 1', async function() {
+      const element = await this.browser.findElement(By.css('[data-comp-name~="ComponentTable"]'));
+      await expect(await element.takeScreenshot()).to.matchImage('page - 1');
+    });
+    it('page - 2', async function() {
+      await this.browser
+        .actions({ bridge: true })
+        .click(this.browser.findElement(By.css('#next-page')))
+        .perform();
+      const element = await this.browser.findElement(By.css('[data-comp-name~="ComponentTable"]'));
+      await expect(await element.takeScreenshot()).to.matchImage('page - 2');
+    });
+    it('page - 3', async function() {
+      await this.browser
+        .actions({ bridge: true })
+        .click(this.browser.findElement(By.css('#next-page')))
+        .click(this.browser.findElement(By.css('#next-page')))
+        .perform();
+      const element = await this.browser.findElement(By.css('[data-comp-name~="ComponentTable"]'));
+      await expect(await element.takeScreenshot()).to.matchImage('page - 3');
+    });
+    it('page - 4', async function() {
+      await this.browser
+        .actions({ bridge: true })
+        .click(this.browser.findElement(By.css('#next-page')))
+        .click(this.browser.findElement(By.css('#next-page')))
+        .click(this.browser.findElement(By.css('#next-page')))
+        .perform();
+      const element = await this.browser.findElement(By.css('[data-comp-name~="ComponentTable"]'));
+      await expect(await element.takeScreenshot()).to.matchImage('page - 4');
+    });
+    it('page - 5', async function() {
+      await this.browser
+        .actions({ bridge: true })
+        .click(this.browser.findElement(By.css('#next-page')))
+        .click(this.browser.findElement(By.css('#next-page')))
+        .click(this.browser.findElement(By.css('#next-page')))
+        .click(this.browser.findElement(By.css('#next-page')))
+        .perform();
+      const element = await this.browser.findElement(By.css('[data-comp-name~="ComponentTable"]'));
+      await expect(await element.takeScreenshot()).to.matchImage('page - 5');
+    });
+  });
+  describe('disabled combinations', function() {
+    it('page - 1', async function() {
+      const element = await this.browser.findElement(By.css('[data-comp-name~="ComponentTable"]'));
+      await expect(await element.takeScreenshot()).to.matchImage('page - 1');
+    });
+    it('page - 2', async function() {
+      await this.browser
+        .actions({ bridge: true })
+        .click(this.browser.findElement(By.css('#next-page')))
+        .perform();
+      const element = await this.browser.findElement(By.css('[data-comp-name~="ComponentTable"]'));
+      await expect(await element.takeScreenshot()).to.matchImage('page - 2');
+    });
+    it('page - 3', async function() {
+      await this.browser
+        .actions({ bridge: true })
+        .click(this.browser.findElement(By.css('#next-page')))
+        .click(this.browser.findElement(By.css('#next-page')))
+        .perform();
+      const element = await this.browser.findElement(By.css('[data-comp-name~="ComponentTable"]'));
+      await expect(await element.takeScreenshot()).to.matchImage('page - 3');
+    });
+    it('page - 4', async function() {
+      await this.browser
+        .actions({ bridge: true })
+        .click(this.browser.findElement(By.css('#next-page')))
+        .click(this.browser.findElement(By.css('#next-page')))
+        .click(this.browser.findElement(By.css('#next-page')))
+        .perform();
+      const element = await this.browser.findElement(By.css('[data-comp-name~="ComponentTable"]'));
+      await expect(await element.takeScreenshot()).to.matchImage('page - 4');
+    });
+    it('page - 5', async function() {
+      await this.browser
+        .actions({ bridge: true })
+        .click(this.browser.findElement(By.css('#next-page')))
+        .click(this.browser.findElement(By.css('#next-page')))
+        .click(this.browser.findElement(By.css('#next-page')))
+        .click(this.browser.findElement(By.css('#next-page')))
+        .perform();
+      const element = await this.browser.findElement(By.css('[data-comp-name~="ComponentTable"]'));
+      await expect(await element.takeScreenshot()).to.matchImage('page - 5');
+    });
+  });
+  describe('active combinations', function() {
+    it('page - 1', async function() {
+      const element = await this.browser.findElement(By.css('[data-comp-name~="ComponentTable"]'));
+      await expect(await element.takeScreenshot()).to.matchImage('page - 1');
+    });
+    it('page - 2', async function() {
+      await this.browser
+        .actions({ bridge: true })
+        .click(this.browser.findElement(By.css('#next-page')))
+        .perform();
+      const element = await this.browser.findElement(By.css('[data-comp-name~="ComponentTable"]'));
+      await expect(await element.takeScreenshot()).to.matchImage('page - 2');
+    });
+    it('page - 3', async function() {
+      await this.browser
+        .actions({ bridge: true })
+        .click(this.browser.findElement(By.css('#next-page')))
+        .click(this.browser.findElement(By.css('#next-page')))
+        .perform();
+      const element = await this.browser.findElement(By.css('[data-comp-name~="ComponentTable"]'));
+      await expect(await element.takeScreenshot()).to.matchImage('page - 3');
+    });
+    it('page - 4', async function() {
+      await this.browser
+        .actions({ bridge: true })
+        .click(this.browser.findElement(By.css('#next-page')))
+        .click(this.browser.findElement(By.css('#next-page')))
+        .click(this.browser.findElement(By.css('#next-page')))
+        .perform();
+      const element = await this.browser.findElement(By.css('[data-comp-name~="ComponentTable"]'));
+      await expect(await element.takeScreenshot()).to.matchImage('page - 4');
+    });
+    it('page - 5', async function() {
+      await this.browser
+        .actions({ bridge: true })
+        .click(this.browser.findElement(By.css('#next-page')))
+        .click(this.browser.findElement(By.css('#next-page')))
+        .click(this.browser.findElement(By.css('#next-page')))
+        .click(this.browser.findElement(By.css('#next-page')))
+        .perform();
+      const element = await this.browser.findElement(By.css('[data-comp-name~="ComponentTable"]'));
+      await expect(await element.takeScreenshot()).to.matchImage('page - 5');
+    });
+  });
+  describe('checked combinations', function() {
+    it('page - 1', async function() {
+      const element = await this.browser.findElement(By.css('[data-comp-name~="ComponentTable"]'));
+      await expect(await element.takeScreenshot()).to.matchImage('page - 1');
+    });
+    it('page - 2', async function() {
+      await this.browser
+        .actions({ bridge: true })
+        .click(this.browser.findElement(By.css('#next-page')))
+        .perform();
+      const element = await this.browser.findElement(By.css('[data-comp-name~="ComponentTable"]'));
+      await expect(await element.takeScreenshot()).to.matchImage('page - 2');
+    });
+    it('page - 3', async function() {
+      await this.browser
+        .actions({ bridge: true })
+        .click(this.browser.findElement(By.css('#next-page')))
+        .click(this.browser.findElement(By.css('#next-page')))
+        .perform();
+      const element = await this.browser.findElement(By.css('[data-comp-name~="ComponentTable"]'));
+      await expect(await element.takeScreenshot()).to.matchImage('page - 3');
+    });
+    it('page - 4', async function() {
+      await this.browser
+        .actions({ bridge: true })
+        .click(this.browser.findElement(By.css('#next-page')))
+        .click(this.browser.findElement(By.css('#next-page')))
+        .click(this.browser.findElement(By.css('#next-page')))
+        .perform();
+      const element = await this.browser.findElement(By.css('[data-comp-name~="ComponentTable"]'));
+      await expect(await element.takeScreenshot()).to.matchImage('page - 4');
+    });
+    it('page - 5', async function() {
+      await this.browser
+        .actions({ bridge: true })
+        .click(this.browser.findElement(By.css('#next-page')))
+        .click(this.browser.findElement(By.css('#next-page')))
+        .click(this.browser.findElement(By.css('#next-page')))
+        .click(this.browser.findElement(By.css('#next-page')))
+        .perform();
+      const element = await this.browser.findElement(By.css('[data-comp-name~="ComponentTable"]'));
+      await expect(await element.takeScreenshot()).to.matchImage('page - 5');
     });
   });
 });

@@ -407,5 +407,167 @@ describe('Tooltip', function() {
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('closed');
     });
+    it('hover&focus - mouseEnter', async function() {
+      const element = await this.browser.findElement(By.css('[data-comp-name~="TestTooltip"]'));
+      await this.browser
+        .actions({
+          bridge: true,
+        })
+        .click(this.browser.findElement(By.css('#hover')))
+        .move({
+          origin: this.browser.findElement(By.css('[type="button"]')),
+        })
+        .move({
+          origin: this.browser.findElement(By.css('body')),
+        })
+        .click(this.browser.findElement(By.css('#click')))
+        .click(this.browser.findElement(By.css('[type="button"]')))
+        .click(this.browser.findElement(By.css('body')))
+        .click(this.browser.findElement(By.css('#focus')))
+        .click(this.browser.findElement(By.css('[type="button"]')))
+        .click(this.browser.findElement(By.css('body')))
+        .click(this.browser.findElement(By.css('#opened')))
+        .click(this.browser.findElement(By.css('#closed')))
+        .click(this.browser.findElement(By.css('#hover_focus')))
+        .move({
+          origin: this.browser.findElement(By.css('[type="button"]')),
+        })
+        .perform();
+      await expect(await element.takeScreenshot()).to.matchImage('hover&focus - mouseEnter');
+    });
+    it('hover&focus - mouseLeave', async function() {
+      const element = await this.browser.findElement(By.css('[data-comp-name~="TestTooltip"]'));
+      await this.browser
+        .actions({
+          bridge: true,
+        })
+        .click(this.browser.findElement(By.css('#hover')))
+        .move({
+          origin: this.browser.findElement(By.css('[type="button"]')),
+        })
+        .move({
+          origin: this.browser.findElement(By.css('body')),
+        })
+        .click(this.browser.findElement(By.css('#click')))
+        .click(this.browser.findElement(By.css('[type="button"]')))
+        .click(this.browser.findElement(By.css('body')))
+        .click(this.browser.findElement(By.css('#focus')))
+        .click(this.browser.findElement(By.css('[type="button"]')))
+        .click(this.browser.findElement(By.css('body')))
+        .click(this.browser.findElement(By.css('#opened')))
+        .click(this.browser.findElement(By.css('#closed')))
+        .click(this.browser.findElement(By.css('#hover_focus')))
+        .move({
+          origin: this.browser.findElement(By.css('[type="button"]')),
+        })
+        .move({
+          origin: this.browser.findElement(By.css('body')),
+        })
+        .perform();
+      await expect(await element.takeScreenshot()).to.matchImage('hover&focus - mouseLeave');
+    });
+    it('hover&focus - focus', async function() {
+      const element = await this.browser.findElement(By.css('[data-comp-name~="TestTooltip"]'));
+      await this.browser
+        .actions({
+          bridge: true,
+        })
+        .click(this.browser.findElement(By.css('#hover')))
+        .move({
+          origin: this.browser.findElement(By.css('[type="button"]')),
+        })
+        .move({
+          origin: this.browser.findElement(By.css('body')),
+        })
+        .click(this.browser.findElement(By.css('#click')))
+        .click(this.browser.findElement(By.css('[type="button"]')))
+        .click(this.browser.findElement(By.css('body')))
+        .click(this.browser.findElement(By.css('#focus')))
+        .click(this.browser.findElement(By.css('[type="button"]')))
+        .click(this.browser.findElement(By.css('body')))
+        .click(this.browser.findElement(By.css('#opened')))
+        .click(this.browser.findElement(By.css('#closed')))
+        .click(this.browser.findElement(By.css('#hover_focus')))
+        .move({
+          origin: this.browser.findElement(By.css('[type="button"]')),
+        })
+        .move({
+          origin: this.browser.findElement(By.css('body')),
+        })
+        .click(this.browser.findElement(By.css('[type="button"]')))
+        .perform();
+      await expect(await element.takeScreenshot()).to.matchImage('hover&focus - focus');
+    });
+    it('hover&focus - focus - mouseLeave', async function() {
+      const element = await this.browser.findElement(By.css('[data-comp-name~="TestTooltip"]'));
+      await this.browser
+        .actions({
+          bridge: true,
+        })
+        .click(this.browser.findElement(By.css('#hover')))
+        .move({
+          origin: this.browser.findElement(By.css('[type="button"]')),
+        })
+        .move({
+          origin: this.browser.findElement(By.css('body')),
+        })
+        .click(this.browser.findElement(By.css('#click')))
+        .click(this.browser.findElement(By.css('[type="button"]')))
+        .click(this.browser.findElement(By.css('body')))
+        .click(this.browser.findElement(By.css('#focus')))
+        .click(this.browser.findElement(By.css('[type="button"]')))
+        .click(this.browser.findElement(By.css('body')))
+        .click(this.browser.findElement(By.css('#opened')))
+        .click(this.browser.findElement(By.css('#closed')))
+        .click(this.browser.findElement(By.css('#hover_focus')))
+        .move({
+          origin: this.browser.findElement(By.css('[type="button"]')),
+        })
+        .move({
+          origin: this.browser.findElement(By.css('body')),
+        })
+        .click(this.browser.findElement(By.css('[type="button"]')))
+        .move({
+          origin: this.browser.findElement(By.css('body')),
+        })
+        .perform();
+      await expect(await element.takeScreenshot()).to.matchImage('hover&focus - focus - mouseLeave');
+    });
+    it('hover&focus - blur', async function() {
+      const element = await this.browser.findElement(By.css('[data-comp-name~="TestTooltip"]'));
+      await this.browser
+        .actions({
+          bridge: true,
+        })
+        .click(this.browser.findElement(By.css('#hover')))
+        .move({
+          origin: this.browser.findElement(By.css('[type="button"]')),
+        })
+        .move({
+          origin: this.browser.findElement(By.css('body')),
+        })
+        .click(this.browser.findElement(By.css('#click')))
+        .click(this.browser.findElement(By.css('[type="button"]')))
+        .click(this.browser.findElement(By.css('body')))
+        .click(this.browser.findElement(By.css('#focus')))
+        .click(this.browser.findElement(By.css('[type="button"]')))
+        .click(this.browser.findElement(By.css('body')))
+        .click(this.browser.findElement(By.css('#opened')))
+        .click(this.browser.findElement(By.css('#closed')))
+        .click(this.browser.findElement(By.css('#hover_focus')))
+        .move({
+          origin: this.browser.findElement(By.css('[type="button"]')),
+        })
+        .move({
+          origin: this.browser.findElement(By.css('body')),
+        })
+        .click(this.browser.findElement(By.css('[type="button"]')))
+        .move({
+          origin: this.browser.findElement(By.css('body')),
+        })
+        .click(this.browser.findElement(By.css('body')))
+        .perform();
+      await expect(await element.takeScreenshot()).to.matchImage('hover&focus - blur');
+    });
   });
 });

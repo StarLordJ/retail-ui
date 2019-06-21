@@ -56,4 +56,16 @@ describe('Baseline', function() {
       await expect(await element.takeScreenshot()).to.matchImage('simple');
     });
   });
+  describe('Text, Spinner', function() {
+    it('simple', async function() {
+      const element = await this.browser.findElement(By.css('#test-element'));
+      await expect(await element.takeScreenshot()).to.matchImage('simple');
+    });
+  });
+  describe('Icon, Spinner', function() {
+    it('simple', async function() {
+      const element = await this.browser.findElement(By.css('#test-element'));
+      await expect(await element.takeScreenshot()).to.matchImage('simple');
+    });
+  });
 });
