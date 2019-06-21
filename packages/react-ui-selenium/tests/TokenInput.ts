@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { By, Key } from 'selenium-webdriver';
+import { By } from 'selenium-webdriver';
 
 describe('TokenInput', function() {
   describe('empty with reference', function() {
@@ -14,6 +14,7 @@ describe('TokenInput', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css('[data-tid="TokenInput"]')))
+        .pause(500)
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('clicked');
     });
@@ -24,7 +25,8 @@ describe('TokenInput', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css('[data-tid="TokenInput"]')))
-        .sendKeys(selector('[data-tid="TokenInput"] input'), Key.aa)
+        .sendKeys('aa')
+        .pause(500)
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('withText');
     });
@@ -35,7 +37,7 @@ describe('TokenInput', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css('[data-tid="TokenInput"]')))
-        .sendKeys(selector('[data-tid="TokenInput"] input'), Key.aa)
+        .sendKeys('aa')
         .pause(500)
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('withMenu');
