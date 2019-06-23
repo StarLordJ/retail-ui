@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { By, Key } from 'selenium-webdriver';
+import { By } from 'selenium-webdriver';
 
 describe('Textarea', function() {
   describe('Different states', function() {
@@ -24,7 +24,7 @@ describe('Textarea', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css('#TextareaPlain textarea')))
-        .sendKeys(selector('#TextareaPlain textarea'), Key['Test...'])
+        .sendKeys('Test...')
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('Typed');
     });
