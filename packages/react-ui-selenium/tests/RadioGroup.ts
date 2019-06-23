@@ -25,9 +25,6 @@ describe('RadioGroup', function() {
         .actions({
           bridge: true,
         })
-        .move({
-          origin: this.browser.findElement(By.css('[data-comp-name="RadioGroup"] > span > label')),
-        })
         .click(this.browser.findElement(By.css('[data-comp-name="RadioGroup"] > span > label')))
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('clicked');
@@ -38,10 +35,12 @@ describe('RadioGroup', function() {
         .actions({
           bridge: true,
         })
-        .move({
-          origin: this.browser.findElement(By.css('[data-comp-name="RadioGroup"] > span > label')),
-        })
         .click(this.browser.findElement(By.css('[data-comp-name="RadioGroup"] > span > label')))
+        .perform();
+      await this.browser
+        .actions({
+          bridge: true,
+        })
         .click(this.browser.findElement(By.css('[data-tid="JustButton"]')))
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('mouseLeave');
@@ -52,10 +51,6 @@ describe('RadioGroup', function() {
         .actions({
           bridge: true,
         })
-        .move({
-          origin: this.browser.findElement(By.css('[data-comp-name="RadioGroup"] > span > label')),
-        })
-        .click(this.browser.findElement(By.css('[data-comp-name="RadioGroup"] > span > label')))
         .click(this.browser.findElement(By.css('[data-tid="JustButton"]')))
         .sendKeys(Key.TAB)
         .perform();
@@ -67,10 +62,6 @@ describe('RadioGroup', function() {
         .actions({
           bridge: true,
         })
-        .move({
-          origin: this.browser.findElement(By.css('[data-comp-name="RadioGroup"] > span > label')),
-        })
-        .click(this.browser.findElement(By.css('[data-comp-name="RadioGroup"] > span > label')))
         .click(this.browser.findElement(By.css('[data-tid="JustButton"]')))
         .sendKeys(Key.TAB)
         .sendKeys(Key.DOWN)
