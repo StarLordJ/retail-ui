@@ -7,7 +7,7 @@ describe('Checkbox', function() {
       const element = await this.browser.findElement(By.css('#test-element'));
       await expect(await element.takeScreenshot()).to.matchImage('plain');
     });
-    it('hovered', async function() {
+    it.skip(['ie11', 'ie11Flat'], 'hovered', async function() {
       const element = await this.browser.findElement(By.css('#test-element'));
       await this.browser
         .actions({
@@ -107,7 +107,7 @@ describe('Checkbox', function() {
       const element = await this.browser.findElement(By.css('#screenshot-capture'));
       await expect(await element.takeScreenshot()).to.matchImage('plain');
     });
-    it('hovered', async function() {
+    it.skip(['ie11', 'ie11Flat'], 'hovered', async function() {
       const element = await this.browser.findElement(By.css('#screenshot-capture'));
       await this.browser
         .actions({

@@ -17,7 +17,7 @@ describe('ComboBox', function() {
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('opened');
     });
-    it('hovered', async function() {
+    it.skip(['ie11', 'ie11Flat'], 'hovered', async function() {
       const element = await this.browser.findElement(By.css('#test-element'));
       await this.browser
         .actions({
@@ -247,7 +247,7 @@ describe('ComboBox', function() {
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('opened');
     });
-    it('hovered', async function() {
+    it.skip(['ie11', 'ie11Flat'], 'hovered', async function() {
       const element = await this.browser.findElement(By.css('[data-tid="container"]'));
       await this.browser
         .actions({

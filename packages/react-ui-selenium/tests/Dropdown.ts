@@ -17,7 +17,7 @@ describe('Dropdown', function() {
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('clicked');
     });
-    it('MenuItem hover', async function() {
+    it.skip(['ie11', 'ie11Flat'], 'MenuItem hover', async function() {
       const element = await this.browser.findElement(By.css('.dropdown-test-container'));
       await this.browser
         .actions({
