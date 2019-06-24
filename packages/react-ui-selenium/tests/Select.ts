@@ -24,6 +24,11 @@ describe('Select', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css('[class^="Select-root"]')))
+        .perform();
+      await this.browser
+        .actions({
+          bridge: true,
+        })
         .move({
           origin: this.browser.findElement(By.css('[data-comp-name="MenuItem"]')),
         })
@@ -37,8 +42,10 @@ describe('Select', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css('[class^="Select-root"]')))
-        .move({
-          origin: this.browser.findElement(By.css('[data-comp-name="MenuItem"]')),
+        .perform();
+      await this.browser
+        .actions({
+          bridge: true,
         })
         .click(this.browser.findElement(By.css('[data-comp-name="MenuItem"]')))
         .perform();
@@ -67,6 +74,11 @@ describe('Select', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css('[class^="Select-root"]')))
+        .perform();
+      await this.browser
+        .actions({
+          bridge: true,
+        })
         .move({
           origin: this.browser.findElement(By.css('[data-comp-name="MenuItem"]')),
         })
@@ -80,8 +92,10 @@ describe('Select', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css('[class^="Select-root"]')))
-        .move({
-          origin: this.browser.findElement(By.css('[data-comp-name="MenuItem"]')),
+        .perform();
+      await this.browser
+        .actions({
+          bridge: true,
         })
         .click(this.browser.findElement(By.css('[data-comp-name="MenuItem"]')))
         .perform();
@@ -110,6 +124,11 @@ describe('Select', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css('[class^="Select-root"]')))
+        .perform();
+      await this.browser
+        .actions({
+          bridge: true,
+        })
         .move({
           origin: this.browser.findElement(By.css('[data-comp-name="MenuItem"]')),
         })
@@ -123,8 +142,10 @@ describe('Select', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css('[class^="Select-root"]')))
-        .move({
-          origin: this.browser.findElement(By.css('[data-comp-name="MenuItem"]')),
+        .perform();
+      await this.browser
+        .actions({
+          bridge: true,
         })
         .click(this.browser.findElement(By.css('[data-comp-name="MenuItem"]')))
         .perform();
@@ -153,6 +174,11 @@ describe('Select', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css('[class^="Select-root"]')))
+        .perform();
+      await this.browser
+        .actions({
+          bridge: true,
+        })
         .move({
           origin: this.browser.findElement(By.css('[data-comp-name="MenuItem"]')),
         })
@@ -166,8 +192,10 @@ describe('Select', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css('[class^="Select-root"]')))
-        .move({
-          origin: this.browser.findElement(By.css('[data-comp-name="MenuItem"]')),
+        .perform();
+      await this.browser
+        .actions({
+          bridge: true,
         })
         .click(this.browser.findElement(By.css('[data-comp-name="MenuItem"]')))
         .perform();
