@@ -305,7 +305,7 @@ describe('Button', function() {
       await expect(await element.takeScreenshot()).to.matchImage('plain');
     });
   });
-  describe('default combination', function() {
+  describe('default combinations', function() {
     it('page - 1', async function() {
       const element = await this.browser.findElement(By.css('[data-comp-name~="ComponentTable"]'));
       await expect(await element.takeScreenshot()).to.matchImage('page - 1');
