@@ -151,6 +151,11 @@ describe('ComboBox', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css('[data-comp-name="InputLikeText"]')))
+        .perform()
+      await this.browser
+        .actions({
+          bridge: true,
+        })
         .sendKeys(Key.ARROW_DOWN)
         .sendKeys(Key.ARROW_DOWN)
         .sendKeys(Key.ARROW_DOWN)
@@ -164,6 +169,11 @@ describe('ComboBox', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css('[data-comp-name="InputLikeText"]')))
+        .perform()
+      await this.browser
+        .actions({
+          bridge: true,
+        })
         .sendKeys(Key.ARROW_DOWN)
         .sendKeys(Key.ARROW_DOWN)
         .sendKeys(Key.ARROW_DOWN)
