@@ -22,11 +22,11 @@ describe('FxInput', function() {
   });
   describe('with width', function() {
     it('inside auto container', async function() {
-      const element = await this.browser.findElement(By.css('#test-element'));
+      const element = await this.browser.findElement(By.css('[data-tid="container"]'));
       await expect(await element.takeScreenshot()).to.matchImage('inside auto container');
     });
     it('inside fixed container', async function() {
-      const element = await this.browser.findElement(By.css('#test-element'));
+      const element = await this.browser.findElement(By.css('[data-tid="container"]'));
       await this.browser
         .actions({
           bridge: true,
