@@ -269,6 +269,11 @@ describe('Input', function() {
   describe('Placeholder and Mask', function() {
     it('Plain', async function() {
       const element = await this.browser.findElement(By.css('#test-element'));
+      // NOTE: Autofocus sometimes not work properly in Firefox in test enviroments
+      await this.browser
+        .actions({ bridge: true })
+        .click(this.browser.findElement(By.css('[data-prop-autofocus="true"]')))
+        .perform();
       await expect(await element.takeScreenshot()).to.matchImage('Plain');
     });
   });
