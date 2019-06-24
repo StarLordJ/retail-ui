@@ -7,7 +7,7 @@ const defaultAddress = {
 };
 
 const flatComponents = ['Button', 'Checkbox', 'Input', 'Radio', 'Textarea', 'Toggle', 'InputLikeText', 'Switcher'];
-const flatRegex = new RegExp(`(${flatComponents.join('|')})\\.ts$`);
+const flatRegex = new RegExp(`(\\/|\\\\)(${flatComponents.join('|')})\\.ts$`);
 
 const config = {
   gridUrl: 'http://screen:shot@grid.testkontur.ru/wd/hub',
