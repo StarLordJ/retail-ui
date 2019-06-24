@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { By, Key } from 'selenium-webdriver';
+import { By } from 'selenium-webdriver';
 
 describe('PasswordInput', function() {
   describe('Plain', function() {
@@ -13,7 +13,8 @@ describe('PasswordInput', function() {
         .actions({
           bridge: true,
         })
-        .sendKeys(selector('input'), Key['Test...'])
+        .click(this.browser.findElement(By.css('[type="password"]')))
+        .sendKeys('Test...')
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('With typed password');
     });
@@ -23,7 +24,8 @@ describe('PasswordInput', function() {
         .actions({
           bridge: true,
         })
-        .sendKeys(selector('input'), Key['Test...'])
+        .click(this.browser.findElement(By.css('[type="password"]')))
+        .sendKeys('Test...')
         .click(this.browser.findElement(By.css('[data-tid="PasswordInputEyeIcon"]')))
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('With visible password');
