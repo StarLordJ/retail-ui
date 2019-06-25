@@ -286,13 +286,6 @@ describe('Tooltip', function() {
         .actions({
           bridge: true,
         })
-        .click(this.browser.findElement(By.css('#hover')))
-        .move({
-          origin: this.browser.findElement(By.css('[type="button"]')),
-        })
-        .move({
-          origin: this.browser.findElement(By.css('body')),
-        })
         .click(this.browser.findElement(By.css('#click')))
         .click(this.browser.findElement(By.css('[type="button"]')))
         .perform();
@@ -303,13 +296,6 @@ describe('Tooltip', function() {
       await this.browser
         .actions({
           bridge: true,
-        })
-        .click(this.browser.findElement(By.css('#hover')))
-        .move({
-          origin: this.browser.findElement(By.css('[type="button"]')),
-        })
-        .move({
-          origin: this.browser.findElement(By.css('body')),
         })
         .click(this.browser.findElement(By.css('#click')))
         .click(this.browser.findElement(By.css('[type="button"]')))
@@ -323,16 +309,6 @@ describe('Tooltip', function() {
         .actions({
           bridge: true,
         })
-        .click(this.browser.findElement(By.css('#hover')))
-        .move({
-          origin: this.browser.findElement(By.css('[type="button"]')),
-        })
-        .move({
-          origin: this.browser.findElement(By.css('body')),
-        })
-        .click(this.browser.findElement(By.css('#click')))
-        .click(this.browser.findElement(By.css('[type="button"]')))
-        .click(this.browser.findElement(By.css('body')))
         .click(this.browser.findElement(By.css('#focus')))
         .click(this.browser.findElement(By.css('[type="button"]')))
         .perform();
@@ -344,16 +320,6 @@ describe('Tooltip', function() {
         .actions({
           bridge: true,
         })
-        .click(this.browser.findElement(By.css('#hover')))
-        .move({
-          origin: this.browser.findElement(By.css('[type="button"]')),
-        })
-        .move({
-          origin: this.browser.findElement(By.css('body')),
-        })
-        .click(this.browser.findElement(By.css('#click')))
-        .click(this.browser.findElement(By.css('[type="button"]')))
-        .click(this.browser.findElement(By.css('body')))
         .click(this.browser.findElement(By.css('#focus')))
         .click(this.browser.findElement(By.css('[type="button"]')))
         .click(this.browser.findElement(By.css('body')))
@@ -366,19 +332,6 @@ describe('Tooltip', function() {
         .actions({
           bridge: true,
         })
-        .click(this.browser.findElement(By.css('#hover')))
-        .move({
-          origin: this.browser.findElement(By.css('[type="button"]')),
-        })
-        .move({
-          origin: this.browser.findElement(By.css('body')),
-        })
-        .click(this.browser.findElement(By.css('#click')))
-        .click(this.browser.findElement(By.css('[type="button"]')))
-        .click(this.browser.findElement(By.css('body')))
-        .click(this.browser.findElement(By.css('#focus')))
-        .click(this.browser.findElement(By.css('[type="button"]')))
-        .click(this.browser.findElement(By.css('body')))
         .click(this.browser.findElement(By.css('#opened')))
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('opened');
@@ -389,19 +342,6 @@ describe('Tooltip', function() {
         .actions({
           bridge: true,
         })
-        .click(this.browser.findElement(By.css('#hover')))
-        .move({
-          origin: this.browser.findElement(By.css('[type="button"]')),
-        })
-        .move({
-          origin: this.browser.findElement(By.css('body')),
-        })
-        .click(this.browser.findElement(By.css('#click')))
-        .click(this.browser.findElement(By.css('[type="button"]')))
-        .click(this.browser.findElement(By.css('body')))
-        .click(this.browser.findElement(By.css('#focus')))
-        .click(this.browser.findElement(By.css('[type="button"]')))
-        .click(this.browser.findElement(By.css('body')))
         .click(this.browser.findElement(By.css('#opened')))
         .click(this.browser.findElement(By.css('#closed')))
         .perform();
@@ -413,21 +353,6 @@ describe('Tooltip', function() {
         .actions({
           bridge: true,
         })
-        .click(this.browser.findElement(By.css('#hover')))
-        .move({
-          origin: this.browser.findElement(By.css('[type="button"]')),
-        })
-        .move({
-          origin: this.browser.findElement(By.css('body')),
-        })
-        .click(this.browser.findElement(By.css('#click')))
-        .click(this.browser.findElement(By.css('[type="button"]')))
-        .click(this.browser.findElement(By.css('body')))
-        .click(this.browser.findElement(By.css('#focus')))
-        .click(this.browser.findElement(By.css('[type="button"]')))
-        .click(this.browser.findElement(By.css('body')))
-        .click(this.browser.findElement(By.css('#opened')))
-        .click(this.browser.findElement(By.css('#closed')))
         .click(this.browser.findElement(By.css('#hover_focus')))
         .move({
           origin: this.browser.findElement(By.css('[type="button"]')),
@@ -441,21 +366,6 @@ describe('Tooltip', function() {
         .actions({
           bridge: true,
         })
-        .click(this.browser.findElement(By.css('#hover')))
-        .move({
-          origin: this.browser.findElement(By.css('[type="button"]')),
-        })
-        .move({
-          origin: this.browser.findElement(By.css('body')),
-        })
-        .click(this.browser.findElement(By.css('#click')))
-        .click(this.browser.findElement(By.css('[type="button"]')))
-        .click(this.browser.findElement(By.css('body')))
-        .click(this.browser.findElement(By.css('#focus')))
-        .click(this.browser.findElement(By.css('[type="button"]')))
-        .click(this.browser.findElement(By.css('body')))
-        .click(this.browser.findElement(By.css('#opened')))
-        .click(this.browser.findElement(By.css('#closed')))
         .click(this.browser.findElement(By.css('#hover_focus')))
         .move({
           origin: this.browser.findElement(By.css('[type="button"]')),
@@ -472,21 +382,6 @@ describe('Tooltip', function() {
         .actions({
           bridge: true,
         })
-        .click(this.browser.findElement(By.css('#hover')))
-        .move({
-          origin: this.browser.findElement(By.css('[type="button"]')),
-        })
-        .move({
-          origin: this.browser.findElement(By.css('body')),
-        })
-        .click(this.browser.findElement(By.css('#click')))
-        .click(this.browser.findElement(By.css('[type="button"]')))
-        .click(this.browser.findElement(By.css('body')))
-        .click(this.browser.findElement(By.css('#focus')))
-        .click(this.browser.findElement(By.css('[type="button"]')))
-        .click(this.browser.findElement(By.css('body')))
-        .click(this.browser.findElement(By.css('#opened')))
-        .click(this.browser.findElement(By.css('#closed')))
         .click(this.browser.findElement(By.css('#hover_focus')))
         .move({
           origin: this.browser.findElement(By.css('[type="button"]')),
@@ -504,21 +399,6 @@ describe('Tooltip', function() {
         .actions({
           bridge: true,
         })
-        .click(this.browser.findElement(By.css('#hover')))
-        .move({
-          origin: this.browser.findElement(By.css('[type="button"]')),
-        })
-        .move({
-          origin: this.browser.findElement(By.css('body')),
-        })
-        .click(this.browser.findElement(By.css('#click')))
-        .click(this.browser.findElement(By.css('[type="button"]')))
-        .click(this.browser.findElement(By.css('body')))
-        .click(this.browser.findElement(By.css('#focus')))
-        .click(this.browser.findElement(By.css('[type="button"]')))
-        .click(this.browser.findElement(By.css('body')))
-        .click(this.browser.findElement(By.css('#opened')))
-        .click(this.browser.findElement(By.css('#closed')))
         .click(this.browser.findElement(By.css('#hover_focus')))
         .move({
           origin: this.browser.findElement(By.css('[type="button"]')),
@@ -539,21 +419,6 @@ describe('Tooltip', function() {
         .actions({
           bridge: true,
         })
-        .click(this.browser.findElement(By.css('#hover')))
-        .move({
-          origin: this.browser.findElement(By.css('[type="button"]')),
-        })
-        .move({
-          origin: this.browser.findElement(By.css('body')),
-        })
-        .click(this.browser.findElement(By.css('#click')))
-        .click(this.browser.findElement(By.css('[type="button"]')))
-        .click(this.browser.findElement(By.css('body')))
-        .click(this.browser.findElement(By.css('#focus')))
-        .click(this.browser.findElement(By.css('[type="button"]')))
-        .click(this.browser.findElement(By.css('body')))
-        .click(this.browser.findElement(By.css('#opened')))
-        .click(this.browser.findElement(By.css('#closed')))
         .click(this.browser.findElement(By.css('#hover_focus')))
         .move({
           origin: this.browser.findElement(By.css('[type="button"]')),
