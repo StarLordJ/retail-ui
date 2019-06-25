@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { By, Key } from 'selenium-webdriver';
+import { By } from 'selenium-webdriver';
 
 describe('Input', function() {
   describe('Inputs with different sizes', function() {
@@ -261,7 +261,12 @@ describe('Input', function() {
         })
         .click(this.browser.findElement(By.css('input')))
         .sendKeys('9')
-        .sendKeys(Key.TAB)
+        .perform();
+      await this.browser
+        .actions({
+          bridge: true,
+        })
+        .click(this.browser.findElement(By.css('body')))
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('Blured');
     });
@@ -269,11 +274,6 @@ describe('Input', function() {
   describe('Placeholder and Mask', function() {
     it('Plain', async function() {
       const element = await this.browser.findElement(By.css('#test-element'));
-      // NOTE: Autofocus sometimes not work properly in Firefox in test enviroments
-      await this.browser
-        .actions({ bridge: true })
-        .click(this.browser.findElement(By.css('[data-prop-autofocus="true"]')))
-        .perform();
       await expect(await element.takeScreenshot()).to.matchImage('Plain');
     });
   });
