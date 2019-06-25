@@ -27,7 +27,7 @@ describe('Tooltip', function() {
     });
   });
   describe('Tooltips without wrapper around inline-block with 50% width', function() {
-    it('hover', async function() {
+    it.skip(['ie11'], 'MenuItem hover', async function() {
       const element = await this.browser.findElement(By.css('#test-element'));
       await this.browser
         .actions({
@@ -250,7 +250,7 @@ describe('Tooltip', function() {
       const element = await this.browser.findElement(By.css('[data-comp-name~="TestTooltip"]'));
       await expect(await element.takeScreenshot()).to.matchImage('without trigger');
     });
-    it('hover - mouseEnter', async function() {
+    it.skip(['ie11'], 'hover - mouseEnter', async function() {
       const element = await this.browser.findElement(By.css('[data-comp-name~="TestTooltip"]'));
       await this.browser
         .actions({
@@ -303,7 +303,7 @@ describe('Tooltip', function() {
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('click - click outside');
     });
-    it('focus - focus', async function() {
+    it.skip(['ie11'], 'focus - focus', async function() {
       const element = await this.browser.findElement(By.css('[data-comp-name~="TestTooltip"]'));
       await this.browser
         .actions({
@@ -347,7 +347,7 @@ describe('Tooltip', function() {
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('closed');
     });
-    it('hover&focus - mouseEnter', async function() {
+    it.skip(['ie11'], 'hover&focus - mouseEnter', async function() {
       const element = await this.browser.findElement(By.css('[data-comp-name~="TestTooltip"]'));
       await this.browser
         .actions({

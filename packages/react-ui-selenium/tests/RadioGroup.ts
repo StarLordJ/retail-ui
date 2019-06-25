@@ -7,7 +7,7 @@ describe('RadioGroup', function() {
       const element = await this.browser.findElement(By.css('#RadioGroup-wrap'));
       await expect(await element.takeScreenshot()).to.matchImage('plain');
     });
-    it('hovered', async function() {
+    it.skip(['ie11'], 'hovered', async function() {
       const element = await this.browser.findElement(By.css('#RadioGroup-wrap'));
       await this.browser
         .actions({
