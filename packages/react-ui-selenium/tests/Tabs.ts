@@ -7,7 +7,7 @@ describe('Tabs', function() {
       const element = await this.browser.findElement(By.css('#test-element'));
       await expect(await element.takeScreenshot()).to.matchImage('plain');
     });
-    it('hovered', async function() {
+    it.skip(['ie11'], 'hovered', async function() {
       const element = await this.browser.findElement(By.css('#test-element'));
       await this.browser
         .actions({
@@ -25,9 +25,6 @@ describe('Tabs', function() {
         .actions({
           bridge: true,
         })
-        .move({
-          origin: this.browser.findElement(By.css('[class^="Tab-root"]:nth-child(2)')),
-        })
         .click(this.browser.findElement(By.css('[class^="Tab-root"]:nth-child(2)')))
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('clicked');
@@ -37,9 +34,6 @@ describe('Tabs', function() {
       await this.browser
         .actions({
           bridge: true,
-        })
-        .move({
-          origin: this.browser.findElement(By.css('[class^="Tab-root"]:nth-child(2)')),
         })
         .click(this.browser.findElement(By.css('[class^="Tab-root"]:nth-child(2)')))
         .move({
@@ -53,9 +47,6 @@ describe('Tabs', function() {
       await this.browser
         .actions({
           bridge: true,
-        })
-        .move({
-          origin: this.browser.findElement(By.css('[class^="Tab-root"]:nth-child(2)')),
         })
         .click(this.browser.findElement(By.css('[class^="Tab-root"]:nth-child(2)')))
         .move({
@@ -71,13 +62,6 @@ describe('Tabs', function() {
         .actions({
           bridge: true,
         })
-        .move({
-          origin: this.browser.findElement(By.css('[class^="Tab-root"]:nth-child(2)')),
-        })
-        .click(this.browser.findElement(By.css('[class^="Tab-root"]:nth-child(2)')))
-        .move({
-          origin: this.browser.findElement(By.css('body')),
-        })
         .click(this.browser.findElement(By.css('[class^="Tab-root"]:nth-child(2)')))
         .sendKeys(Key.TAB)
         .perform();
@@ -88,13 +72,6 @@ describe('Tabs', function() {
       await this.browser
         .actions({
           bridge: true,
-        })
-        .move({
-          origin: this.browser.findElement(By.css('[class^="Tab-root"]:nth-child(2)')),
-        })
-        .click(this.browser.findElement(By.css('[class^="Tab-root"]:nth-child(2)')))
-        .move({
-          origin: this.browser.findElement(By.css('body')),
         })
         .click(this.browser.findElement(By.css('[class^="Tab-root"]:nth-child(2)')))
         .sendKeys(Key.TAB)
@@ -149,7 +126,7 @@ describe('Tabs', function() {
       const element = await this.browser.findElement(By.css('#test-element'));
       await expect(await element.takeScreenshot()).to.matchImage('plain');
     });
-    it('hovered', async function() {
+    it.skip(['ie11'], 'hovered', async function() {
       const element = await this.browser.findElement(By.css('#test-element'));
       await this.browser
         .actions({
@@ -167,9 +144,6 @@ describe('Tabs', function() {
         .actions({
           bridge: true,
         })
-        .move({
-          origin: this.browser.findElement(By.css('[class^="Tab-root"]:nth-child(2)')),
-        })
         .click(this.browser.findElement(By.css('[class^="Tab-root"]:nth-child(2)')))
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('clicked');
@@ -179,9 +153,6 @@ describe('Tabs', function() {
       await this.browser
         .actions({
           bridge: true,
-        })
-        .move({
-          origin: this.browser.findElement(By.css('[class^="Tab-root"]:nth-child(2)')),
         })
         .click(this.browser.findElement(By.css('[class^="Tab-root"]:nth-child(2)')))
         .move({
@@ -195,9 +166,6 @@ describe('Tabs', function() {
       await this.browser
         .actions({
           bridge: true,
-        })
-        .move({
-          origin: this.browser.findElement(By.css('[class^="Tab-root"]:nth-child(2)')),
         })
         .click(this.browser.findElement(By.css('[class^="Tab-root"]:nth-child(2)')))
         .move({
@@ -213,13 +181,6 @@ describe('Tabs', function() {
         .actions({
           bridge: true,
         })
-        .move({
-          origin: this.browser.findElement(By.css('[class^="Tab-root"]:nth-child(2)')),
-        })
-        .click(this.browser.findElement(By.css('[class^="Tab-root"]:nth-child(2)')))
-        .move({
-          origin: this.browser.findElement(By.css('body')),
-        })
         .click(this.browser.findElement(By.css('[class^="Tab-root"]:nth-child(2)')))
         .sendKeys(Key.TAB)
         .perform();
@@ -230,13 +191,6 @@ describe('Tabs', function() {
       await this.browser
         .actions({
           bridge: true,
-        })
-        .move({
-          origin: this.browser.findElement(By.css('[class^="Tab-root"]:nth-child(2)')),
-        })
-        .click(this.browser.findElement(By.css('[class^="Tab-root"]:nth-child(2)')))
-        .move({
-          origin: this.browser.findElement(By.css('body')),
         })
         .click(this.browser.findElement(By.css('[class^="Tab-root"]:nth-child(2)')))
         .sendKeys(Key.TAB)
