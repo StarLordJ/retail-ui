@@ -14,21 +14,8 @@ describe('TokenInput', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css('[data-tid="TokenInput"]')))
-        .pause(500)
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('clicked');
-    });
-    it('withText', async function() {
-      const element = await this.browser.findElement(By.css('.tokens-test-container'));
-      await this.browser
-        .actions({
-          bridge: true,
-        })
-        .click(this.browser.findElement(By.css('[data-tid="TokenInput"]')))
-        .sendKeys('aa')
-        .pause(500)
-        .perform();
-      await expect(await element.takeScreenshot()).to.matchImage('withText');
     });
     it('withMenu', async function() {
       const element = await this.browser.findElement(By.css('.tokens-test-container'));
@@ -37,8 +24,7 @@ describe('TokenInput', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css('[data-tid="TokenInput"]')))
-        .sendKeys('aa')
-        .pause(500)
+        .sendKeys('a')
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('withMenu');
     });

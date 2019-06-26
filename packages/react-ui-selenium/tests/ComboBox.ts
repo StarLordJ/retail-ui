@@ -151,7 +151,7 @@ describe('ComboBox', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css('[data-comp-name="InputLikeText"]')))
-        .perform()
+        .perform();
       await this.browser
         .actions({
           bridge: true,
@@ -169,7 +169,7 @@ describe('ComboBox', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css('[data-comp-name="InputLikeText"]')))
-        .perform()
+        .perform();
       await this.browser
         .actions({
           bridge: true,

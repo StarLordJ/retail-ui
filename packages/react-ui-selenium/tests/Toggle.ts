@@ -19,6 +19,12 @@ describe('Toggle', function() {
         .press()
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('pressed');
+      await this.browser
+        .actions({
+          bridge: true,
+        })
+        .release()
+        .perform();
     });
     it('clicked', async function() {
       const element = await this.browser.findElement(By.css('#test-element'));
@@ -26,14 +32,7 @@ describe('Toggle', function() {
         .actions({
           bridge: true,
         })
-        .move({
-          origin: this.browser.findElement(By.css('label')),
-        })
-        .press()
-        .move({
-          origin: this.browser.findElement(By.css('label')),
-        })
-        .release()
+        .click(this.browser.findElement(By.css('label')))
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('clicked');
     });

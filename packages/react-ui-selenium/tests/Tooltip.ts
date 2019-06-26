@@ -27,7 +27,7 @@ describe('Tooltip', function() {
     });
   });
   describe('Tooltips without wrapper around inline-block with 50% width', function() {
-    it.skip(['ie11'], 'MenuItem hover', async function() {
+    it.skip(['ie11'], 'hover', async function() {
       const element = await this.browser.findElement(By.css('#test-element'));
       await this.browser
         .actions({
@@ -58,6 +58,7 @@ describe('Tooltip', function() {
           bridge: true,
         })
         .sendKeys(Key.TAB)
+        .pause(500)
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('02 - focus');
     });
@@ -68,8 +69,14 @@ describe('Tooltip', function() {
           bridge: true,
         })
         .sendKeys(Key.TAB)
-        .pause(100)
-        .sendKeys(Key.TAB)
+        .perform();
+      // NOTE In FF next Tab key event will focus browser tab that fail next tests
+      // Possible solution add focus trap element inside all stories as a decorator
+      await this.browser
+        .actions({
+          bridge: true,
+        })
+        .click(this.browser.findElement(By.css('body')))
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('03 - blur');
     });
@@ -96,8 +103,12 @@ describe('Tooltip', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css('input')))
-        .pause(100)
-        .sendKeys(Key.TAB)
+        .perform();
+      await this.browser
+        .actions({
+          bridge: true,
+        })
+        .click(this.browser.findElement(By.css('body')))
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('03 - blur');
     });
@@ -146,7 +157,11 @@ describe('Tooltip', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css('#Container-1 button')))
-        .pause(100)
+        .perform();
+      await this.browser
+        .actions({
+          bridge: true,
+        })
         .click(this.browser.findElement(By.css('#Container-1 button')))
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('05 - does not change position on shrink');
@@ -168,7 +183,11 @@ describe('Tooltip', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css('#Container-2 button')))
-        .pause(100)
+        .perform();
+      await this.browser
+        .actions({
+          bridge: true,
+        })
         .click(this.browser.findElement(By.css('#Container-2 button')))
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('07 - does not change position back on shrink');
@@ -303,13 +322,18 @@ describe('Tooltip', function() {
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('click - click outside');
     });
-    it.skip(['ie11'], 'focus - focus', async function() {
+    it('focus - focus', async function() {
       const element = await this.browser.findElement(By.css('[data-comp-name~="TestTooltip"]'));
       await this.browser
         .actions({
           bridge: true,
         })
         .click(this.browser.findElement(By.css('#focus')))
+        .perform();
+      await this.browser
+        .actions({
+          bridge: true,
+        })
         .click(this.browser.findElement(By.css('[type="button"]')))
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('focus - focus');
@@ -383,12 +407,6 @@ describe('Tooltip', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css('#hover_focus')))
-        .move({
-          origin: this.browser.findElement(By.css('[type="button"]')),
-        })
-        .move({
-          origin: this.browser.findElement(By.css('body')),
-        })
         .click(this.browser.findElement(By.css('[type="button"]')))
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('hover&focus - focus');
@@ -400,12 +418,6 @@ describe('Tooltip', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css('#hover_focus')))
-        .move({
-          origin: this.browser.findElement(By.css('[type="button"]')),
-        })
-        .move({
-          origin: this.browser.findElement(By.css('body')),
-        })
         .click(this.browser.findElement(By.css('[type="button"]')))
         .move({
           origin: this.browser.findElement(By.css('body')),
@@ -420,16 +432,7 @@ describe('Tooltip', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css('#hover_focus')))
-        .move({
-          origin: this.browser.findElement(By.css('[type="button"]')),
-        })
-        .move({
-          origin: this.browser.findElement(By.css('body')),
-        })
         .click(this.browser.findElement(By.css('[type="button"]')))
-        .move({
-          origin: this.browser.findElement(By.css('body')),
-        })
         .click(this.browser.findElement(By.css('body')))
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('hover&focus - blur');
