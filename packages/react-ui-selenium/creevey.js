@@ -13,8 +13,10 @@ const config = {
   gridUrl: 'http://screen:shot@grid.testkontur.ru/wd/hub',
   address: defaultAddress,
   testRegex: /\.ts$/,
+  threshold: 0,
+  maxRetries: 2,
   browsers: {
-    chrome: { browserName: 'chrome' },
+    chrome: { browserName: 'chrome', limit: 2 },
     chromeFlat: {
       browserName: 'chrome',
       testRegex: flatRegex,
@@ -34,6 +36,7 @@ const config = {
     },
     ie11: {
       browserName: 'internet explorer',
+      limit: 2,
       // NOTE Enable after switch new separate pool for IE
       // 'se:ieOptions': {
       //   enablePersistentHover: true,

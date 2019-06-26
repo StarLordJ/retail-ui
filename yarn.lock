@@ -5847,11 +5847,12 @@ create-react-context@^0.2.2:
     fbjs "^0.8.0"
     gud "^1.0.0"
 
-creevey@^0.0.8:
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/creevey/-/creevey-0.0.8.tgz#934f0ae234cabe2a18f69ec6d6112b253ffcb244"
-  integrity sha512-qbiGqYVoADZt21iiG/2JA5XpQrqtjK+oHYREUOKN/kdtwVdaeRWiKhzNPpqFFC6ghvfMIQ0G/xOj8AyiqQorSw==
+creevey@^0.0.9:
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/creevey/-/creevey-0.0.9.tgz#f03d4e0eded29e5d72fcf9d89e7e2dd2b700de9e"
+  integrity sha512-A4kBrVekCl/tsNp/ezvaTQ03j8VlGlhMhOp6WHyA7sT7BZENO4lh4FLuK2uQi49E5ii33sUHg85Hp4QPBusTEQ==
   dependencies:
+    chalk "^2.4.2"
     koa "^2.7.0"
     koa-mount "^4.0.0"
     koa-static "^5.0.0"
