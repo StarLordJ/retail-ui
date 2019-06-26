@@ -368,17 +368,10 @@ object ReactUI_ScreenshotTests : BuildType({
             type = "jonnyzzz.yarn"
             param("yarn_commands", "install")
         }
-        script {
-            name = "Start"
-            scriptContent = """
-                start /b yarn workspace retail-ui storybook:test
-                ping 127.0.0.1 -n 61
-            """.trimIndent()
-        }
         step {
             name = "Test UI"
             type = "jonnyzzz.yarn"
-            param("yarn_commands", "workspace react-ui-selenium creevey --reporter mocha-teamcity-reporter")
+            param("yarn_commands", "workspace react-ui-selenium test:ci --reporter mocha-teamcity-reporter")
         }
     }
 
