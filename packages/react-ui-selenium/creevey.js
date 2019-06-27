@@ -14,7 +14,8 @@ const config = {
   address: defaultAddress,
   testRegex: /\.ts$/,
   threshold: 0,
-  maxRetries: 2,
+  // FIXME Chrome box-shadow with border radius is flaky
+  maxRetries: 5,
   browsers: {
     chrome: { browserName: 'chrome', limit: 2 },
     chromeFlat: {

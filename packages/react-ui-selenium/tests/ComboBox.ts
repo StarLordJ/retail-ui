@@ -95,6 +95,7 @@ describe('ComboBox', function() {
           bridge: true,
         })
         .sendKeys(Key.ENTER)
+        .pause(500)
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('selcted');
     });
@@ -118,6 +119,7 @@ describe('ComboBox', function() {
           bridge: true,
         })
         .sendKeys(Key.ENTER)
+        .pause(500)
         .perform();
       await this.browser
         .actions({
@@ -189,6 +191,7 @@ describe('ComboBox', function() {
         })
         .click(this.browser.findElement(By.css('[data-comp-name="InputLikeText"]')))
         .sendKeys('Second')
+        .pause(500)
         .perform();
       await this.browser
         .actions({

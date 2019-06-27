@@ -36,6 +36,7 @@ describe('Tooltip', function() {
         .move({
           origin: this.browser.findElement(By.css('textarea')),
         })
+        .pause(500)
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('hover');
     });
@@ -293,9 +294,16 @@ describe('Tooltip', function() {
         .move({
           origin: this.browser.findElement(By.css('[type="button"]')),
         })
+        .pause(500)
+        .perform();
+        await this.browser
+          .actions({
+            bridge: true,
+          })
         .move({
           origin: this.browser.findElement(By.css('body')),
         })
+        .pause(500)
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('hover - mouseLeave');
     });

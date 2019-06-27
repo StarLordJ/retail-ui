@@ -74,8 +74,6 @@ describe('SidePage', function() {
         .actions({
           bridge: true,
         })
-        .click(this.browser.findElement(By.css('[data-tid="toggle-body-content"]')))
-        .click(this.browser.findElement(By.css('[data-tid="toggle-body-content"]')))
         .click(this.browser.findElement(By.css('[data-tid="toggle-child-component-content"]')))
         .perform();
       await expect(await this.browser.takeScreenshot()).to.matchImage('child component content has been changed');
@@ -85,8 +83,6 @@ describe('SidePage', function() {
         .actions({
           bridge: true,
         })
-        .click(this.browser.findElement(By.css('[data-tid="toggle-body-content"]')))
-        .click(this.browser.findElement(By.css('[data-tid="toggle-body-content"]')))
         .click(this.browser.findElement(By.css('[data-tid="toggle-child-component-content"]')))
         .click(this.browser.findElement(By.css('[data-tid="update"]')))
         .perform();

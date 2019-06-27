@@ -63,12 +63,14 @@ describe('Tabs', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css('[class^="Tab-root"]:nth-child(2)')))
+        .pause(500)
         .perform();
       await this.browser
         .actions({
           bridge: true,
         })
         .sendKeys(Key.TAB)
+        .pause(500)
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('tabPress');
     });
@@ -79,6 +81,7 @@ describe('Tabs', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css('[class^="Tab-root"]:nth-child(2)')))
+        .pause(500)
         .perform();
       await this.browser
         .actions({
@@ -87,6 +90,7 @@ describe('Tabs', function() {
         .sendKeys(Key.TAB)
         .pause(500)
         .sendKeys(Key.ENTER)
+        .pause(500)
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('enterPress');
     });
@@ -115,6 +119,7 @@ describe('Tabs', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css('[class^="Tab-root"]:nth-child(3)')))
+        .pause(500)
         .perform();
       await this.browser
         .actions({
@@ -123,6 +128,7 @@ describe('Tabs', function() {
         .sendKeys(Key.ARROW_LEFT)
         .pause(500)
         .sendKeys(Key.ARROW_UP)
+        .pause(500)
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('move focus backward');
     });
@@ -206,12 +212,14 @@ describe('Tabs', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css('[class^="Tab-root"]:nth-child(2)')))
+        .pause(500)
         .perform();
       await this.browser
         .actions({
           bridge: true,
         })
         .sendKeys(Key.TAB)
+        .pause(500)
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('tabPress');
     });
@@ -222,6 +230,7 @@ describe('Tabs', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css('[class^="Tab-root"]:nth-child(2)')))
+        .pause(500)
         .perform();
       await this.browser
         .actions({
@@ -230,6 +239,7 @@ describe('Tabs', function() {
         .sendKeys(Key.TAB)
         .pause(500)
         .sendKeys(Key.ENTER)
+        .pause(500)
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('enterPress');
     });

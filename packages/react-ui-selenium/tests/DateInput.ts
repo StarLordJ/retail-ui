@@ -30,6 +30,7 @@ describe('DateInput', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css("[data-comp-name*='DateInput']")))
+        .pause(500)
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('focus');
     });

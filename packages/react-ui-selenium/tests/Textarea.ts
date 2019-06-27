@@ -53,6 +53,7 @@ describe('Textarea', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css('label')))
+        .pause(500)
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('Focused');
     });
@@ -69,6 +70,7 @@ describe('Textarea', function() {
           bridge: true,
         })
         .click(this.browser.findElement(By.css('button')))
+        .pause(500)
         .perform();
       await expect(await element.takeScreenshot()).to.matchImage('Selected');
     });
