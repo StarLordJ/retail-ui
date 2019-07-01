@@ -13,7 +13,7 @@ const config = {
   gridUrl: 'http://screen:shot@grid.testkontur.ru/wd/hub',
   address: defaultAddress,
   testRegex: /\.ts$/,
-  threshold: 0,
+  threshold: 0.005,
   // FIXME Chrome box-shadow with border radius is flaky
   maxRetries: 5,
   browsers: {
